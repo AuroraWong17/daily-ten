@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
+<meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -525,9 +526,30 @@ document.addEventListener('paste',e=>{
   img.src=u;
 });
 
-async function speak(text){
-  if(tts){try{await tts.speak(text,{language:'en'});return}catch(e){if(e&&e.code!=='not_granted'&&e.code!=='unavailable')return}}
-  try{const u=new SpeechSynthesisUtterance(text);u.lang='en-US';speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}
+const player=new Audio();let speakN=0;
+function speakTTS(text){
+  try{
+    const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=.9;
+    const vs=speechSynthesis.getVoices().filter(v=>/^en[-_]US/i.test(v.lang));
+    const v=vs.find(v=>/Samantha|Ava|Allison|Google US English|Aria|Jenny/i.test(v.name))||vs[0];
+    if(v)u.voice=v;
+    speechSynthesis.cancel();speechSynthesis.speak(u);
+  }catch(e){}
+}
+function speak(text){
+  text=String(text||'').trim();if(!text)return;
+  const n=++speakN,q=encodeURIComponent(text);
+  const yd='https://dict.youdao.com/dictvoice?type=2&audio='+q,bd='https://fanyi.baidu.com/gettts?lan=en&spd=3&source=web&text='+q;
+  const urls=/\s/.test(text)?[bd,yd]:[yd,bd];
+  try{speechSynthesis.cancel()}catch(e){}
+  let i=0;
+  const next=()=>{
+    if(n!==speakN)return;
+    if(i>=urls.length){speakTTS(text);return}
+    player.onerror=next;player.src=urls[i++];
+    const p=player.play();if(p&&p.catch)p.catch(e=>{if(e&&e.name!=='AbortError')next()});
+  };
+  next();
 }
 
 /* ---------- matching the word inside a sentence ---------- */
