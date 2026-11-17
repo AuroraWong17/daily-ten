@@ -36,7 +36,12 @@ a.btn{text-decoration:none;display:inline-block}
 a{color:var(--accent)}
 body{background:var(--bg);color:var(--ink);font:400 15px/1.6 var(--body);
   padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+html,body{overflow-x:hidden}
 .wrap{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.wrap>*{min-width:0;max-width:100%}
+#syncbar{display:flex;flex-direction:column;gap:10px}
+#syncbar .sb{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:6px 12px}
+#syncbar .sb.warn{border-color:var(--mark);color:var(--ink)}
 header{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 16px}
 h1{font:700 26px/1.2 var(--display);margin:0;letter-spacing:.02em}
 h1 span{background:var(--mark);color:var(--mark-ink);padding:0 .18em;border-radius:3px}
@@ -121,6 +126,7 @@ mark{background:var(--mark);color:var(--mark-ink);padding:0 .15em;border-radius:
     <h1><span>每日十词</span></h1>
     <div id="stats"></div>
   </header>
+  <div id="syncbar"></div>
   <nav id="tabs" aria-label="功能"></nav>
   <main id="view"><p class="muted">加载中…</p></main>
 </div>
@@ -279,7 +285,16 @@ function persist(){
 const SYNC_KEY='d10sync',SYNC_FILE='daily-ten-sync.json';
 let syncCfg=null;try{syncCfg=JSON.parse(localStorage.getItem(SYNC_KEY))}catch(e){}
 let syncTimer=null,syncing=false,syncAgain=false;
-function setSync(m){ui.sync=m;document.querySelectorAll('.sync-st').forEach(el=>{el.textContent=m})}
+function setSync(m,bad){ui.sync=m;ui.syncBad=!!bad;renderSync()}
+function renderSync(){
+  const el=$('#syncbar');if(!el)return;
+  if(document.activeElement&&document.activeElement.id==='sync-token')return;
+  const on=!!(syncCfg&&syncCfg.token);
+  const bar=!on?'<div class="sb warn"><span>这台设备还没开启同步，学习记录只存在这一个浏览器里。</span><button class="btn primary" data-act="toggleSync">开启同步</button></div>'
+    :ui.syncBad?'<div class="sb warn"><span>'+esc(ui.sync)+'</span><button class="btn primary" data-act="toggleSync">重新粘贴令牌</button></div>'
+    :'<div class="sb"><span>'+esc(ui.sync||'同步已开启')+'</span><button class="btn ghost" data-act="toggleSync">同步设置</button></div>';
+  el.innerHTML=bar+syncPanelHTML();
+}
 function gh(path,opt){
   return fetch('https://api.github.com'+path,Object.assign({headers:{Authorization:'Bearer '+syncCfg.token,Accept:'application/vnd.github+json'}},opt||{}))
     .then(r=>{if(!r.ok)throw new Error('gh '+r.status);return r.json()});
@@ -322,7 +337,9 @@ async function syncNow(){
     console.warn(e);
     const m=String(e&&e.message);
     if(/gh 404/.test(m)&&syncCfg.gist){delete syncCfg.gist;localStorage.setItem(SYNC_KEY,JSON.stringify(syncCfg))}
-    setSync(/gh 40[13]/.test(m)?'同步失败：令牌无效或没有 gist 权限':'同步失败，稍后会重试');
+    if(/gh 401/.test(m))setSync('同步失败：这个令牌已经失效（在 GitHub 上重新生成或删除过令牌，旧的就作废了）。',true);
+    else if(/gh 403/.test(m))setSync('同步失败：这个令牌没有 gist 权限。',true);
+    else setSync('暂时连不上 GitHub，稍后会自动重试。');
   }
   syncing=false;
   if(syncAgain){syncAgain=false;queueSync()}
@@ -333,12 +350,13 @@ function syncPanelHTML(){
   if(!ui.showSync)return'';
   const on=!!(syncCfg&&syncCfg.token);
   return '<section class="panel"><h2>多设备同步</h2>'+
-    '<p class="small muted">学习记录会存到你自己 GitHub 账号下的一个私密 Gist 里。每台设备各做一次：</p>'+
-    '<ol class="small" style="margin:0;padding-left:1.4em"><li>登录 GitHub，打开 <a href="https://github.com/settings/tokens/new?scopes=gist&description=daily-ten-sync" target="_blank" rel="noopener">创建令牌页面</a>（已只勾选 gist 权限），Expiration 选 No expiration，点 Generate token。</li>'+
-    '<li>复制生成的令牌（ghp_ 开头）粘贴到下面。同一个令牌可以用在你所有的设备上，请自己另存一份。</li></ol>'+
+    '<p class="small muted">学习记录存到你自己 GitHub 账号下的一个私密 Gist 里。所有设备用<b>同一个令牌</b>。</p>'+
+    '<ol class="small" style="margin:0;padding-left:1.4em"><li><b>第一次</b>：登录 GitHub，打开 <a href="https://github.com/settings/tokens/new?scopes=gist&description=daily-ten-sync" target="_blank" rel="noopener">创建令牌页面</a>，Expiration 选 No expiration，确认勾了 gist，点最下面 Generate token，复制 ghp_ 开头的那串，粘贴到下面。</li>'+
+    '<li><b>其他设备</b>：不要再生成新令牌（点 Regenerate 会让旧的作废）。在已经同步好的设备上点“复制同步链接”，发给自己，在新设备上打开那个链接就自动连好了。</li></ol>'+
     '<div class="row"><input type="password" id="sync-token" placeholder="'+(on?'已保存令牌，重新粘贴可替换':'粘贴 ghp_ 开头的令牌')+'" style="flex:1 1 220px" autocomplete="off">'+
-    '<button class="btn primary" data-act="saveSync">保存并同步</button>'+
-    (on?'<button class="btn" data-act="syncNow">立即同步</button><button class="btn ghost danger" data-act="stopSync">在这台设备上停止同步</button>':'')+'</div>'+
+    '<button class="btn primary" data-act="saveSync">保存并同步</button></div>'+
+    (on?'<div class="row"><button class="btn" data-act="copyLink">复制同步链接</button><button class="btn" data-act="syncNow">立即同步</button><button class="btn ghost danger" data-act="stopSync">在这台设备上停止同步</button><span class="small muted">'+esc(ui.linkMsg||'')+'</span></div>'+
+      '<p class="small muted">同步链接里带着你的令牌，只发给自己，不要发给别人。手机想放到桌面：用同步链接打开后，直接“添加到主屏幕”。</p>':'')+
     '<p class="small muted">令牌只保存在这台设备的浏览器里，不会写进网页文件。</p></section>';
 }
 async function flush(){
@@ -355,6 +373,12 @@ async function flush(){
 }
 const timeout=(p,ms)=>Promise.race([p,new Promise((_,r)=>setTimeout(()=>r(new Error('timeout')),ms))]);
 
+function applyHash(){
+  try{const h=/[#&]t=((?:ghp_|github_pat_)[A-Za-z0-9_]+)/.exec(location.hash);
+    if(h&&(!syncCfg||syncCfg.token!==h[1])){syncCfg={token:h[1]};localStorage.setItem(SYNC_KEY,JSON.stringify(syncCfg));ui.showSync=false;ui.syncBad=false;return true}}catch(e){}
+  return false;
+}
+window.addEventListener('hashchange',()=>{if(applyHash()&&ui.ready)syncNow().then(()=>{if(!ui.rev&&!ui.test){render();ensureToday()}})});
 async function boot(){
   try{const l=JSON.parse(localStorage.getItem('d10'));if(l&&l.meta&&l.words)S={meta:Object.assign({},DEF,l.meta),words:l.words}}catch(e){}
   render();
@@ -376,6 +400,7 @@ async function boot(){
       }
     }catch(e){console.warn(e)}
   }
+  applyHash();
   await Promise.race([syncNow(),new Promise(r=>setTimeout(r,8000))]);
   ui.ready=true;render();ensureToday();
 }
@@ -591,7 +616,7 @@ const settingsHTML=()=>'<div class="row small muted"><label for="set-level">难�
   LV.slice(0,3).map((n,i)=>'<option value="'+i+'"'+(i===S.meta.level?' selected':'')+'>'+n+'</option>').join('')+'</select>'+
   '<label for="set-ratio">每天</label><select id="set-ratio" data-change="ratio">'+
   [[7,'日常 7 + 正式 3'],[5,'日常 5 + 正式 5'],[3,'日常 3 + 正式 7']].map(o=>'<option value="'+o[0]+'"'+(o[0]===S.meta.lifeN?' selected':'')+'>'+o[1]+'</option>').join('')+'</select>'+
-  '<button class="btn ghost" data-act="retest">重做水平测试</button><button class="btn ghost" data-act="exportData">导出备份</button><button class="btn ghost" data-act="importData">导入备份</button><input type="file" id="imp" accept=".json,application/json" hidden><button class="btn ghost" data-act="toggleSync">多设备同步</button><span class="sync-st">'+esc(ui.sync)+'</span></div>'+syncPanelHTML();
+  '<button class="btn ghost" data-act="retest">重做水平测试</button><button class="btn ghost" data-act="exportData">导出备份</button><button class="btn ghost" data-act="importData">导入备份</button><input type="file" id="imp" accept=".json,application/json" hidden></div>';
 
 const V={};
 V.today=function(){
@@ -599,8 +624,8 @@ V.today=function(){
   if(!ui.ready)return '<div class="row"><span class="spin"></span><span class="muted">正在读取你的学习记录…</span></div>';
   if(S.meta.level==null)return '<section class="panel"><h2>先看看你已经认识哪些词</h2>'+
     '<p>50 个词，从很简单到很难，大约 5 分钟。测完后每天的 10 个词会从适合你的难度开始。</p>'+
-    '<div class="row"><button class="btn primary" data-act="startTest">开始测试</button><button class="btn" data-act="skipTest">跳过，从最简单的开始</button></div></section>'+
-    '<div class="row small muted"><button class="btn ghost" data-act="toggleSync">已经在别的设备上用过？开启同步</button><span class="sync-st">'+esc(ui.sync)+'</span></div>'+syncPanelHTML();
+    '<div class="row"><button class="btn primary" data-act="startTest">开始测试</button><button class="btn" data-act="skipTest">跳过，从最简单的开始</button></div>'+
+    (syncCfg&&syncCfg.token?'':'<p class="small muted">已经在别的设备上学过？先点上面的“开启同步”，记录会自动出现，不用重新测试。</p>')+'</section>';
   if(ui.busy==='daily')return '<section class="panel"><div class="row"><span class="spin"></span><h2>正在准备今天的 10 个词</h2></div><p class="muted">已写好 <b id="prog">'+ui.prog+'</b> / 10，每个词配 3 个例句。</p></section>';
   const list=todayList();
   if(!list.length)return '<section class="panel"><h2>今天的 10 个词还没准备好</h2>'+(ui.err?'<p class="err">'+esc(ui.err)+'</p>':'')+
@@ -821,6 +846,7 @@ function render(){
   $('#stats').innerHTML=(m.level!=null?'等级 <b>'+LV[m.level]+'</b> · ':'')+'连续 <b>'+m.streak+'</b> 天 · 词库 <b>'+all().length+'</b> · 已掌握 <b>'+all().filter(k=>S.words[k].box>=5).length+'</b>';
   $('#tabs').innerHTML=TABS.map(t=>'<button data-act="tab" data-tab="'+t[0]+'" aria-current="'+(ui.tab===t[0])+'">'+t[1]+(t[0]==='review'&&due?'<span class="n">'+due+'</span>':'')+'</button>').join('');
   $('#view').innerHTML=V[ui.tab]();
+  renderSync();
   autoImages();
   const f=$('#view [data-focus]');
   if(f){f.focus({preventScroll:true});if(f.setSelectionRange&&f.type==='text'){const n=f.value.length;f.setSelectionRange(n,n)}}
@@ -856,8 +882,12 @@ const A={
   hint(){ui.prac.hint=true;render()},
   checkMake(){checkMake()},
   nextImg(d){nextImg(d.k)},
-  toggleSync(){ui.showSync=!ui.showSync;render()},
-  saveSync(){const el=$('#sync-token'),v=el&&el.value.trim();if(!v)return;
+  toggleSync(){ui.showSync=!ui.showSync;ui.linkMsg='';const a=document.activeElement;if(a&&a.blur)a.blur();renderSync()},
+  copyLink(){const u=location.origin+location.pathname+'#t='+syncCfg.token;
+    const done=ok=>{ui.linkMsg=ok?'已复制，发给自己后在另一台设备上打开':'复制失败，请换个浏览器再试';renderSync()};
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(u).then(()=>done(true),()=>done(false));
+    else{const t=document.createElement('textarea');t.value=u;document.body.appendChild(t);t.select();let ok=false;try{ok=document.execCommand('copy')}catch(e){}t.remove();done(ok)}},
+  saveSync(){const el=$('#sync-token'),v=el&&el.value.trim();if(!v)return;el.blur();ui.syncBad=false;ui.sync='';
     syncCfg={token:v};try{localStorage.setItem(SYNC_KEY,JSON.stringify(syncCfg))}catch(e){}
     ui.showSync=false;render();syncNow().then(()=>{if(!ui.rev&&!ui.test){render();ensureToday()}})},
   syncNow(){syncNow()},
