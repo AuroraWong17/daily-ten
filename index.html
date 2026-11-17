@@ -81,6 +81,21 @@ textarea{width:100%;resize:vertical;min-height:72px}
 .meta{color:var(--muted);font-size:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .tag{font-size:12px;border:1px solid var(--line);border-radius:4px;padding:0 6px;color:var(--muted);white-space:nowrap}
 .zh{font-size:18px;font-weight:600}
+.rel{display:flex;flex-direction:column;gap:6px}
+.rel p{margin:0}
+.rel .more{font-weight:600}
+.rel .rl{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.rel input{width:100%}
+.chip[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)}
+.chipbox{background:var(--sunk);border-radius:8px;padding:8px 12px;display:flex;flex-direction:column;gap:4px}
+.chipbox p{margin:0}
+.defs .cnl{margin:0;font-size:15px}
+.defs{display:flex;flex-direction:column;gap:6px}
+.defs .pos{display:flex;flex-direction:column;gap:2px;align-items:flex-start}
+.defs ol{margin:0;padding-left:1.4em;font-size:14px}
+.defs li .cn{display:block;color:var(--muted)}
+.defs .btn.small{padding:0 6px;font-size:12px}
+.chip{border:1px solid var(--line);background:none;color:var(--ink);font:inherit;font-size:14px;padding:2px 10px;border-radius:999px;cursor:pointer}
 .ex{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
 .ex li{display:grid;grid-template-columns:22px 1fr;gap:2px 6px}
 .ex .k{color:var(--muted);font:500 13px/1.75 var(--mono)}
@@ -131,6 +146,68 @@ mark{background:var(--mark);color:var(--mark-ink);padding:0 .15em;border-radius:
   <main id="view"><p class="muted">加载中…</p></main>
 </div>
 
+<script type="text/plain" id="talk">
+out of ten|（打分）满分十分得…分|🔟|给东西打分时用：数字 + out of ten。|I'd give this movie six out of ten.|这部电影我打六分（满分十分）。|How was the food? Eight out of ten.|菜怎么样？八分吧。|On a bad day, my energy is two out of ten.|状态差的时候，我的精力只有两分。
+how's it going|最近怎么样；你好吗|👋|熟人之间最常见的打招呼，回答 Good / Not bad 就行，不用细说。|Hey, how's it going?|嘿，最近怎么样？|How's it going with your new job?|新工作怎么样？|I asked him how's it going, and he just smiled.|我问他最近怎么样，他只是笑了笑。
+not bad|还不错|🙂|比 good 稍微低调一点，口语里其实是“挺好”的意思。|How was your weekend? Not bad, thanks.|周末过得怎么样？还不错，谢谢。|This coffee is not bad at all.|这咖啡真的还不错。|Not bad for a first try!|第一次试就这样，不错了！
+no worries|没关系；不客气|😌|别人道歉或道谢时都可以用，在澳洲特别常见。|Sorry I'm late. No worries!|抱歉我迟到了。没关系！|Thanks for your help. No worries.|谢谢你帮忙。不客气。|No worries, we still have time.|别担心，我们还有时间。
+hang on|等一下|✋|让对方稍等，比 wait 更口语、更客气。|Hang on, I'll get my keys.|等一下，我去拿钥匙。|Hang on a second, my phone is ringing.|等一下，我电话响了。|Can you hang on while I check?|我查一下，你能等会儿吗？
+never mind|算了；没关系|🤷|表示“不用管了、不重要”。|Never mind, I'll do it myself.|算了，我自己来。|What did you say? Never mind.|你说什么？没什么，算了。|Never mind the mess, come in.|别管屋里乱，进来吧。
+I'm starving|我饿死了|🍽️|夸张说法，就是“非常饿”，不是真的要饿死。|I'm starving. Let's get lunch.|我饿死了，去吃午饭吧。|I skipped breakfast, so I'm starving now.|我没吃早饭，现在饿坏了。|Is dinner ready? I'm starving!|晚饭好了吗？我饿死了！
+I'm full|我吃饱了|😋|吃饱了用 full，不要说 I'm fat 或 I eat enough。|No more rice, thanks. I'm full.|不要米饭了，谢谢，我吃饱了。|I'm full, but I want dessert.|我吃饱了，但还想吃甜点。|I'm full after that big lunch.|中午吃太多，我很饱。
+sounds good|听起来不错；好啊|👍|同意别人的建议时最常用的一句。|Pizza tonight? Sounds good.|今晚吃披萨？好啊。|That plan sounds good to me.|这个计划我觉得不错。|Meet at six? Sounds good!|六点见？好的！
+I'm not sure|我不确定|🤔|比 I don't know 更委婉。|I'm not sure what time it starts.|我不确定几点开始。|Is he coming? I'm not sure.|他来吗？我不确定。|I'm not sure about this color.|这个颜色我拿不准。
+it depends|看情况|⚖️|不能直接回答是或否时用，后面可接 on。|Do you cook every day? It depends.|你每天做饭吗？看情况。|It depends on the weather.|要看天气。|It depends on how much it costs.|要看多少钱。
+by the way|顺便说一下|💬|想换个话题或补充一句时用，常缩写成 BTW。|By the way, your bag is open.|顺便说一下，你的包开着。|By the way, did you call your mom?|对了，你给妈妈打电话了吗？|Nice shoes, by the way.|对了，你的鞋很好看。
+to be honest|说实话|🫢|要说真实想法（尤其是不太好听的话）之前用。|To be honest, I don't like it.|说实话，我不喜欢。|To be honest, I forgot your name.|说实话，我忘了你的名字。|I'm a bit tired, to be honest.|说实话，我有点累。
+I guess|我想；大概吧|🤨|表示不太确定的同意或猜测。|I guess we can walk there.|我想我们可以走过去。|It's fine, I guess.|还行吧。|I guess he's still at work.|我猜他还在上班。
+kind of|有点儿|🤏|口语里常读成 kinda，意思是“有一点”。|I'm kind of tired today.|我今天有点累。|It's kind of expensive.|这有点贵。|Do you like it? Kind of.|你喜欢吗？还行，有点吧。
+a bit|有一点|🤏|和 a little 一样，英式和澳式口语更常用。|Can you speak a bit slower?|你能说慢一点吗？|I'm a bit busy right now.|我现在有点忙。|It's a bit cold in here.|这里有点冷。
+a couple of|两三个；几个|✌️|严格说是两个，口语里常指“两三个”。|I'll be there in a couple of minutes.|我过几分钟就到。|I bought a couple of apples.|我买了几个苹果。|We met a couple of years ago.|我们几年前认识的。
+no way|不可能；不会吧|😲|表示惊讶，或者坚决拒绝。|You won? No way!|你赢了？不会吧！|No way am I paying that much.|我才不会付那么多钱。|No way, that's my favorite too!|不会吧，这也是我最喜欢的！
+you're kidding|你在开玩笑吧|😮|听到难以相信的事情时用。|He quit his job? You're kidding.|他辞职了？你在开玩笑吧。|You're kidding! It's free?|不会吧！是免费的？|Tell me you're kidding.|告诉我你是在开玩笑。
+that makes sense|有道理；这就说得通了|💡|听懂了别人的解释时用。|Oh, that makes sense now.|哦，现在说得通了。|He was sick? That makes sense.|他病了？那就说得通了。|That makes sense. Thanks for explaining.|有道理，谢谢你的解释。
+I see|我明白了|👀|表示“听懂了”，不是“我看见”。|I see. So we need two tickets.|明白了，所以我们需要两张票。|Oh, I see what you mean.|哦，我明白你的意思了。|I see. Thanks for telling me.|我明白了，谢谢你告诉我。
+got it|明白了；知道了|✅|比 I understand 更口语、更短。|Turn left at the bank. Got it.|在银行那里左转。知道了。|Got it, I'll send it today.|明白，我今天发。|You need it by Friday? Got it.|你周五之前要？知道了。
+my bad|我的错|🙈|小失误时的随意道歉，不适合正式场合。|My bad, I sent the wrong file.|我的错，我发错文件了。|Oh, my bad. I thought it was Monday.|哦，我的错，我以为是周一。|That was my bad, sorry.|那是我的问题，抱歉。
+take your time|慢慢来，不着急|🐢|告诉对方不用赶。|Take your time, there's no rush.|慢慢来，不着急。|Take your time with the menu.|菜单慢慢看。|Please take your time. I can wait.|你慢慢来，我可以等。
+I'm on my way|我在路上了|🚶|表示已经出发，正往那边去。|I'm on my way, see you soon.|我在路上了，一会儿见。|Don't start yet. I'm on my way.|先别开始，我在路上了。|I'm on my way home now.|我现在在回家路上。
+running late|要迟到了；来不及了|⏰|提前告诉别人自己会晚到。|Sorry, I'm running late.|抱歉，我要迟到了。|The bus is running late again.|公交车又晚点了。|We're running late, let's go.|我们来不及了，走吧。
+what's up|怎么了；最近怎样|🙋|可以是打招呼，也可以是问“出什么事了”。|Hey, what's up?|嘿，最近怎样？|You look sad. What's up?|你看起来不开心，怎么了？|What's up with the internet today?|今天网络是怎么回事？
+long time no see|好久不见|🤗|见到很久没见的熟人时说。|Hi Anna! Long time no see.|嗨，安娜！好久不见。|Long time no see. How have you been?|好久不见，你最近怎么样？|Wow, long time no see, my friend.|哇，好久不见，朋友。
+catch up|叙旧；聊聊近况|☕|约朋友见面聊天时常用。|Let's catch up over coffee.|我们喝杯咖啡聊聊近况吧。|We should catch up soon.|我们应该尽快聚一聚。|I need to catch up with my sister.|我得和我姐姐聊聊近况。
+hang out|一起玩；待在一起|🛋️|朋友之间随意地一起消磨时间。|Do you want to hang out tonight?|今晚想一起玩吗？|We hang out at the park on Sundays.|我们周日常在公园玩。|I like to hang out with my friends.|我喜欢和朋友待在一起。
+grab a coffee|去喝杯咖啡|☕|grab 是“随手拿、快速买”的意思，很口语。|Let's grab a coffee after class.|下课后去喝杯咖啡吧。|Do you have time to grab a coffee?|你有时间去喝杯咖啡吗？|I'll grab a coffee on the way.|我路上顺便买杯咖啡。
+for here or to go|在这儿吃还是带走|🥡|点餐时店员会问，英澳也说 eat in or take away。|Is that for here or to go?|在这儿吃还是带走？|She asked me, for here or to go?|她问我是在这儿吃还是带走。|For here or to go? To go, please.|堂食还是带走？带走，谢谢。
+can I get|我想要；请给我|🛒|点餐、买东西最自然的说法，比 I want 礼貌。|Can I get a flat white, please?|请给我一杯澳白，谢谢。|Can I get the bill, please?|麻烦结账，谢谢。|Can I get two tickets for tonight?|我想要两张今晚的票。
+that's all|就这些|🧾|点完餐或说完话时用。|A sandwich and a tea. That's all.|一个三明治和一杯茶，就这些。|That's all for today, thank you.|今天就这些，谢谢。|Is that everything? Yes, that's all.|就这些吗？是的，就这些。
+keep the change|不用找了|🪙|付现金时告诉对方零钱不用找。|Here's ten dollars. Keep the change.|这是十块钱，不用找了。|Thanks for the ride. Keep the change.|谢谢你载我，不用找了。|He told the driver to keep the change.|他让司机不用找零了。
+how much is it|这个多少钱|💲|问价钱最简单的说法。|Excuse me, how much is it?|请问，这个多少钱？|I like this jacket. How much is it?|我喜欢这件外套，多少钱？|How much is it for two people?|两个人多少钱？
+just looking|只是看看|👓|店员问要不要帮忙时，这样回答最自然。|Can I help you? I'm just looking, thanks.|需要帮忙吗？我只是看看，谢谢。|We're just looking today.|我们今天只是看看。|No thanks, just looking.|不用了谢谢，只是看看。
+I'll take it|我要这个；我买了|🛍️|决定买下某样东西时说。|It fits well. I'll take it.|很合身，我要了。|Only twenty dollars? I'll take it.|才二十块？我要了。|This one is perfect. I'll take it.|这个很完美，我买了。
+excuse me|打扰一下；借过|🙏|叫住别人、借过、没听清时都用。|Excuse me, where is the station?|打扰一下，车站在哪里？|Excuse me, can I get past?|不好意思，借过一下。|Excuse me, is this seat taken?|请问，这个座位有人吗？
+say that again|请再说一遍|👂|没听清时用，比 What? 礼貌得多。|Sorry, say that again?|抱歉，再说一遍？|Sorry, say that again. It's noisy here.|抱歉，请再说一遍，这里太吵了。|I missed it. Sorry, say that again?|我没听到，抱歉，再说一遍？
+what do you mean|你是什么意思|❓|没理解对方的话时问，语气要平和。|What do you mean by that?|你这话是什么意思？|Sorry, what do you mean?|抱歉，你是什么意思？|What do you mean, it's closed?|你说关门了是什么意思？
+I mean|我的意思是|🗣️|想解释或纠正自己刚说的话时用。|I mean, it's not a bad idea.|我的意思是，这主意不坏。|He's nice. I mean, he helps everyone.|他人很好，我是说，他谁都帮。|It's on Tuesday. I mean, Thursday.|是周二，哦不，我是说周四。
+you know|你知道的；那个|🫱|说话时的停顿词，用来拉近距离或争取思考时间。|It's hard, you know, to start again.|你知道的，重新开始很难。|You know, I never liked that place.|说起来，我一直不喜欢那地方。|She's busy, you know, with the kids.|你知道的，她忙着带孩子。
+feel free|请随意；别客气|🤲|告诉对方可以随便做某事，不用问。|Feel free to ask questions.|有问题尽管问。|Feel free to sit anywhere.|请随便坐。|If you're hungry, feel free to eat.|饿了就吃，别客气。
+it's up to you|你决定；随你|🫵|把决定权交给对方。|Tea or coffee? It's up to you.|茶还是咖啡？你决定。|We can stay or go. It's up to you.|我们可以留下也可以走，随你。|It's up to you where we eat.|去哪儿吃由你定。
+I don't mind|我不介意；都行|😊|表示两个选择都可以接受。|Window or aisle? I don't mind.|靠窗还是过道？我都行。|I don't mind waiting.|我不介意等。|I don't mind if you open the window.|你开窗我不介意。
+either way|不管怎样；两种都行|↔️|表示两个结果或选择都可以。|Either way, we need to leave by eight.|不管怎样，我们八点前得走。|Bus or train, either way is fine.|公交或火车，哪种都行。|Either way, thanks for asking.|不管怎样，谢谢你问我。
+make it|赶到；能来|🏃|表示“能按时到、能参加”。|Sorry, I can't make it tonight.|抱歉，我今晚来不了。|Can you make it to the meeting?|你能来开会吗？|We ran and just made it.|我们跑着去，刚好赶上。
+give me a hand|帮我一下|🤝|请人帮个小忙，hand 在这里是“帮助”。|Can you give me a hand with this box?|你能帮我搬一下这个箱子吗？|Give me a hand, please. It's heavy.|帮我一下，很重。|He asked me to give him a hand.|他让我帮他一下。
+do me a favor|帮我个忙|🙏|请别人帮忙前先说这句，后面再说具体的事。|Can you do me a favor?|你能帮我个忙吗？|Do me a favor and close the door.|帮个忙，把门关上。|She asked me to do her a favor.|她请我帮个忙。
+I'm good|不用了，谢谢；我挺好|🙅|别人问要不要再来一点时，表示“不用了”。|More tea? No thanks, I'm good.|再来点茶？不用了，谢谢。|How are you? I'm good, thanks.|你好吗？我挺好的，谢谢。|I'm good for now, maybe later.|现在不用，晚点再说。
+fair enough|有道理；那好吧|🤝|表示接受对方的理由，即使不完全同意。|You're too tired? Fair enough.|你太累了？那好吧。|Fair enough, we can go tomorrow.|有道理，那我们明天去。|It's your money. Fair enough.|那是你的钱，说得也对。
+I'm done|我做完了；我受够了|🏁|可以是“完成了”，也可以是“不想再继续了”。|I'm done with my homework.|我作业写完了。|Are you still eating? No, I'm done.|你还在吃吗？没有，我吃完了。|I'm done with this old phone.|我受够这部旧手机了。
+figure out|弄明白；想出办法|🧩|表示经过思考后理解或解决。|I can't figure out this machine.|我搞不懂这台机器。|We'll figure out a way.|我们会想出办法的。|Did you figure out the answer?|你想出答案了吗？
+find out|查明；得知|🔎|表示“去了解到某个信息”。|I'll find out what time it opens.|我去问问几点开门。|How did you find out?|你是怎么知道的？|Let's find out who called.|我们查查是谁打的电话。
+look forward to|期待|🤩|后面接名词或动词 -ing，不接动词原形。|I look forward to seeing you.|我期待见到你。|We look forward to the weekend.|我们期待周末。|I look forward to your reply.|期待你的回复。
+get used to|习惯于|🔄|后面接名词或动词 -ing，表示慢慢习惯。|You'll get used to the weather.|你会习惯这里的天气的。|I can't get used to this bed.|我睡不惯这张床。|She will get used to driving here.|她会习惯在这里开车的。
+run out of|用完；没有了|🪫|表示某样东西用光了。|We've run out of milk.|我们的牛奶喝完了。|I always run out of time.|我的时间总是不够用。|Don't run out of battery.|别把电用光了。
+pick up|接（人）；取（东西）|🚗|接人、取东西、顺路买东西都可以用。|I'll pick up the kids at three.|我三点去接孩子。|Can you pick up some bread?|你能顺路买点面包吗？|I need to pick up my parcel.|我得去取我的包裹。
+drop off|送到；放下|📦|把人或东西送到某个地方就离开。|I'll drop off the keys tonight.|我今晚把钥匙送过去。|Can you drop off the kids at school?|你能把孩子送到学校吗？|Just drop off the box at reception.|把箱子放在前台就行。
+</script>
 <script type="text/plain" id="bank">
 0|l|apple|/ˈæp.əl/|n.|苹果|🍎||I eat an apple every morning.|我每天早上吃一个苹果。|This apple is red and sweet.|这个苹果又红又甜。|She cut the apple into four pieces.|她把苹果切成了四块。
 0|l|water|/ˈwɔː.tər/|n.|水|💧|glass of water|Can I have a glass of water?|可以给我一杯水吗？|The water is too hot.|水太烫了。|Drink more water when it is hot.|天热的时候要多喝水。
@@ -262,6 +339,12 @@ const PT=[
 ].sort((a,b)=>a[0]-b[0]);
 const BANK=document.getElementById('bank').textContent.trim().split('\n').map(l=>{const a=l.split('|');
   return{lv:+a[0],cat:a[1]==='f'?'formal':'life',w:a[2],ipa:a[3],pos:a[4],zh:a[5],emoji:a[6],q:a[7],ex:[0,1,2].map(i=>({en:a[8+i*2],zh:a[9+i*2]})),tip:''}});
+const TALK=document.getElementById('talk').textContent.trim().split('\n').map(l=>{const a=l.split('|');
+  return{w:a[0],ipa:'',pos:'口语',zh:a[1],emoji:a[2],q:'',cat:'life',tip:a[3],ex:[0,1,2].map(i=>({en:a[4+i*2],zh:a[5+i*2]}))}});
+const TALK_N=5;
+const TALKQ={"out of ten":"star rating","how's it going":"people greeting","I'm starving":"empty plate","I'm full":"dinner table food","sounds good":"thumbs up","that makes sense":"light bulb","take your time":"hourglass","I'm on my way":"person walking street","running late":"alarm clock","long time no see":"friends hugging","catch up":"friends talking cafe","hang out":"friends in park","grab a coffee":"takeaway coffee cup","for here or to go":"takeaway food","can I get":"cafe counter","keep the change":"coins","how much is it":"price tags shop","just looking":"clothes shop interior","I'll take it":"shopping bags","give me a hand":"carrying box","fair enough":"handshake","I'm done":"finish line","figure out":"jigsaw puzzle","find out":"magnifying glass","run out of":"low battery","pick up":"parcel locker","drop off":"parcel delivery"};
+const isTalk=w=>w&&w.src==='talk';
+const qOf=w=>isTalk(w)?(TALKQ[w.w]||''):(w.q||'');
 const DEF={level:null,days:{},known:[],pending:[],streak:0,lastDay:'',lifeN:5};
 let S={meta:Object.assign({},DEF),words:{}};
 const ui={tab:'today',idx:0,busy:null,prog:0,err:'',test:null,rev:null,
@@ -332,7 +415,7 @@ async function syncNow(){
     if(mine!==txt){const u={};u[SYNC_FILE]={content:mine};await gh('/gists/'+syncCfg.gist,{method:'PATCH',body:JSON.stringify({files:u})})}
     try{localStorage.setItem('d10',mine)}catch(e){}
     const d=new Date();setSync('已同步 '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0'));
-    if(changed&&ui.ready&&!ui.rev&&!ui.test&&ui.tab!=='prac'&&!ui.busy)render();
+    if(changed&&ui.ready&&!ui.rev&&!ui.test&&ui.tab!=='prac'&&!ui.busy&&!ui.editRel)render();
   }catch(e){
     console.warn(e);
     const m=String(e&&e.message);
@@ -451,9 +534,21 @@ function finishDaily(items,t){
   if(m.lastDay!==t){m.streak=m.lastDay===addDays(t,-1)?m.streak+1:1;m.lastDay=t}
   ui.idx=0;persist.apply(null,['meta'].concat(keys));
 }
+const talkList=()=>((S.meta.talk||{})[today()]||[]).filter(k=>S.words[k]);
+function genTalk(){
+  const t=today(),m=S.meta;m.talk=m.talk||{};
+  if(m.talk[t])return;
+  const items=TALK.filter(x=>!S.words[slug(x.w)]).slice(0,TALK_N);
+  if(!items.length){ui.talkErr='内置的 '+TALK.length+' 条口语你都学过了，可以去“复习”巩固。';return}
+  const keys=addWords(items,'talk');m.talk[t]=keys;
+  Object.keys(m.talk).sort().slice(0,-14).forEach(d=>delete m.talk[d]);
+  if(m.lastDay!==t){m.streak=m.lastDay===addDays(t,-1)?m.streak+1:1;m.lastDay=t}
+  ui.tidx=0;persist.apply(null,['meta'].concat(keys));
+}
 function ensureToday(){if(ui.ready&&S.meta.level!=null&&!S.meta.days[today()]&&!ui.busy&&!ui.test)genDaily()}
 
 async function tr(s){
+  try{const g=await gt(s);if(g.t)return g.t}catch(e){}
   try{const r=await fetch('https://api.mymemory.translated.net/get?langpair=en|zh-CN&q='+encodeURIComponent(s));
     const j=await r.json();return(j.responseData&&j.responseData.translatedText)||''}catch(e){return''}
 }
@@ -474,7 +569,7 @@ async function lookup(word){
       if(def)it.tip='英文释义：'+def;
     }
   }catch(e){}
-  it.zh=await tr(it.w);
+  it.zh=(await cnFull(it.w).catch(()=>''))||(await tr(it.w));
   for(const e of it.ex)e.zh=await tr(e.en);
   if(!it.ex.length){it.ex.push({en:it.w,zh:it.zh});it.tip=(it.tip?it.tip+'　':'')+'词典里没有找到例句，可以在“打字练习 → 自己造句”里加上你自己的句子。'}
   return it;
@@ -508,16 +603,17 @@ async function commons(q){
   return Object.keys(ps).map(id=>ps[id]).sort((a,b)=>a.index-b.index).map(p=>p.imageinfo&&p.imageinfo[0]&&p.imageinfo[0].thumburl).filter(Boolean);
 }
 async function loadAlts(k){
-  const w=S.words[k];let list=[];
-  if(!w.q){const u=await wikiImg(w.w).catch(()=>'');if(u)list.push(u)}
-  list=list.concat(await commons(w.q||w.w).catch(()=>[]));
-  if(list.length<4)list=list.concat(await openverse(w.q||w.w).catch(()=>[]));
+  const w=S.words[k],q=qOf(w);let list=[];
+  if(isTalk(w)&&!q){ALT[k]={list:[],i:-1};return}
+  if(!q){const u=await wikiImg(w.w).catch(()=>'');if(u)list.push(u)}
+  list=list.concat(await commons(q||w.w).catch(()=>[]));
+  if(list.length<4)list=list.concat(await openverse(q||w.w).catch(()=>[]));
   ALT[k]={list:list,i:-1};
 }
 function setImg(k,url){
   const w=S.words[k];if(!w)return;
   w.img=url;persist(k);
-  document.querySelectorAll('[data-pic="'+k+'"]').forEach(el=>{el.innerHTML=url?'<img src="'+esc(url)+'" alt="" data-fail="'+k+'">':esc(w.emoji)});
+  document.querySelectorAll('[data-pic="'+k+'"]').forEach(el=>{el.innerHTML=url?'<img src="'+esc(url)+'" alt="" data-fail="'+k+'">':esc(w.emoji);if(isTalk(w))el.hidden=!url});
 }
 async function nextImg(k){
   if(!S.words[k])return;
@@ -528,11 +624,12 @@ async function nextImg(k){
 }
 function autoImages(){
   document.querySelectorAll('[data-pic]').forEach(el=>{const k=el.dataset.pic,w=S.words[k];
-    if(w&&!w.img&&!tried[k]){tried[k]=1;nextImg(k)}});
+    if(w&&!w.img&&!tried[k]&&(!isTalk(w)||qOf(w))){tried[k]=1;nextImg(k)}});
 }
 function picHTML(k){
   const w=S.words[k];
-  return '<div class="pic" data-pic="'+k+'" role="img" aria-label="'+esc(w.zh)+'">'+(w.img?'<img src="'+esc(w.img)+'" alt="" data-fail="'+k+'">':esc(w.emoji))+'</div>';
+  if(isTalk(w)&&!w.img&&!qOf(w))return'';
+  return '<div class="pic" data-pic="'+k+'" role="img" aria-label="'+esc(w.zh)+'"'+(isTalk(w)&&!w.img?' hidden':'')+'>'+(w.img?'<img src="'+esc(w.img)+'" alt="" data-fail="'+k+'">':esc(w.emoji))+'</div>';
 }
 document.addEventListener('error',e=>{
   const k=e.target&&e.target.dataset&&e.target.dataset.fail;if(!k)return;
@@ -594,6 +691,135 @@ function statusOf(w){
   if(w.due<=today())return['due',w.lapses?'待重测':'待复习'];
   return['',w.box?'学习中':'新词'];
 }
+const relTried={},defTried={},defCache={};
+const POSZH={noun:'名词 n.',verb:'动词 v.',adjective:'形容词 adj.',adverb:'副词 adv.',preposition:'介词 prep.',conjunction:'连词 conj.',pronoun:'代词 pron.',interjection:'感叹词 int.',determiner:'限定词 det.',numeral:'数词 num.',article:'冠词 art.'};
+const posName=p=>POSZH[p]||p;
+let ydN=0;
+function ydTrim(x){
+  if(!/(\.{3}|…)\s*$/.test(x))return x.trim();
+  x=x.replace(/(\.{3}|…)\s*$/,'');
+  const i=Math.max(x.lastIndexOf('；'),x.lastIndexOf('; '));
+  return (i>0?x.slice(0,i):x).trim();
+}
+async function gt(text,bd){
+  const r=await fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=zh-CN&hl=en&dt=t'+(bd?'&dt=bd&dt=md':'')+'&q='+encodeURIComponent(text));
+  if(!r.ok)throw new Error('gt '+r.status);
+  const j=await r.json();
+  return {t:(j[0]||[]).map(x=>x&&x[0]||'').join('').trim(),bd:(j[1]||[]).map(p=>({p:p[0],z:(p[1]||[]).slice(0,5)})),
+    md:(j[12]||[]).map(p=>({p:p[0],d:(p[1]||[]).slice(0,2).map(x=>({e:String(x[0]||'').replace(/^./,c=>c.toUpperCase()),z:''})).filter(x=>x.e)})).filter(g=>g.p&&g.d.length).slice(0,5)};
+}
+const gwCache={};
+function gword(word){const k=word.toLowerCase();return gwCache[k]||(gwCache[k]=gt(k,true).catch(e=>{delete gwCache[k];return null}))}
+const ABBR={noun:'n.',verb:'v.',adjective:'adj.',adverb:'adv.',preposition:'prep.',conjunction:'conj.',pronoun:'pron.',interjection:'int.',abbreviation:'abbr.'};
+async function cnFull(word){
+  const [yd,g]=await Promise.all([ydExplain(word),/\s/.test(word)?null:gword(word)]);
+  const lines=yd?yd.split(/;\s+/).filter(Boolean):[];
+  if(g)g.bd.forEach(x=>{const ab=ABBR[x.p];if(ab&&x.z.length&&!lines.some(l=>l.indexOf(ab)===0))lines.push(ab+' '+x.z.join('；'))});
+  if(!lines.length&&g&&g.t&&g.t.toLowerCase()!==word.toLowerCase())lines.push(g.t);
+  return lines.join('; ');
+}
+async function trDefs(defs){
+  const todo=[];defs.forEach(g=>g.d.forEach(x=>{if(!x.z)todo.push(x)}));
+  if(!todo.length)return false;
+  try{const out=(await gt(todo.map(x=>x.e.replace(/\n/g,' ')).join('\n'))).t.split(/\n+/).map(x=>x.trim()).filter(Boolean);
+    if(out.length!==todo.length)return false;
+    todo.forEach((x,i)=>{x.z=out[i]});return true}catch(e){return false}
+}
+function ydExplain(word){
+  return new Promise(res=>{
+    const cb='__yd'+(++ydN),sc=document.createElement('script');let fin=false;
+    const done=v=>{if(fin)return;fin=true;try{delete window[cb]}catch(e){}sc.remove();res(v)};
+    window[cb]=j=>{const e=j&&j.data&&j.data.entries&&j.data.entries[0];
+      done(e&&e.entry&&e.explain&&String(e.entry).toLowerCase()===word.toLowerCase()?ydTrim(String(e.explain)):'')};
+    sc.onerror=()=>done('');setTimeout(()=>done(''),6000);
+    sc.src='https://dict.youdao.com/suggest?num=1&doctype=json&q='+encodeURIComponent(word)+'&callback='+cb;
+    document.head.appendChild(sc);
+  });
+}
+async function fetchDefs(word){
+  const key=word.toLowerCase();if(defCache[key])return defCache[key];
+  if(!/\s/.test(key)){const g=await gword(key);if(g&&g.md.length)return defCache[key]=g.md}
+  const r=await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+encodeURIComponent(key));
+  if(r.status===404)return defCache[key]=[];
+  if(!r.ok)throw new Error('dict '+r.status);
+  const out=[];
+  (await r.json()).forEach(en=>(en.meanings||[]).forEach(m=>{
+    if(!m.partOfSpeech)return;
+    let g=out.find(x=>x.p===m.partOfSpeech);
+    if(!g){if(out.length>=5)return;out.push(g={p:m.partOfSpeech,d:[]})}
+    (m.definitions||[]).forEach(x=>{if(x.definition&&g.d.length<2&&!g.d.some(y=>y.e===x.definition))g.d.push({e:x.definition,z:''})});
+  }));
+  return defCache[key]=out.filter(g=>g.d.length);
+}
+function defsHTML(k){
+  const w=S.words[k];if(!w)return'';
+  const cn=w.cn?'<p class="small muted" style="margin:0">词典释义（所有词性）</p>'+w.cn.split(/;\s+/).map(x=>'<p class="cnl">'+esc(x)+'</p>').join(''):'';
+  if(!w.defs||(w.cv!==4&&!defTried[k]))return cn+(defTried[k]?'':'<p class="small muted">正在查找所有词性和英文释义…</p>');
+  if(!w.defs.length)return cn;
+  return cn+'<p class="small muted" style="margin:0">英文释义</p>'+
+    w.defs.map((g,gi)=>'<div class="pos"><span class="tag">'+esc(posName(g.p))+'</span><ol>'+g.d.map((x,di)=>
+      '<li>'+esc(x.e)+' '+(x.z?'':'<button class="btn ghost small" data-act="trDef" data-k="'+k+'" data-g="'+gi+'" data-d="'+di+'">中文</button>')+
+      (x.z?'<span class="cn">'+esc(x.z)+'</span>':'')+'</li>').join('')+'</ol></div>').join('');
+}
+async function autoDefs(){
+  for(const el of document.querySelectorAll('[data-defs]')){
+    const k=el.dataset.defs,w=S.words[k];
+    if(!w||w.cv===4||defTried[k])continue;
+    defTried[k]=1;
+    const [cn,d]=await Promise.all([cnFull(w.w).catch(()=>''),fetchDefs(w.w).catch(()=>null)]);
+    const dd=d?JSON.parse(JSON.stringify(d)):null;
+    if(dd)await trDefs(dd);
+    const cur=S.words[k];
+    if(cur){if(cn)cur.cn=cn;if(dd)cur.defs=dd;if(cn&&dd)cur.cv=4;if(cn||dd)persist(k)}
+    const now=document.querySelector('[data-defs="'+k+'"]');if(now)now.innerHTML=defsHTML(k);
+  }
+}
+function chipBoxHTML(k){
+  const c=ui.chip;if(!c||c.k!==k)return'';
+  return '<div class="chipbox"><div class="row"><b style="font-size:17px">'+esc(c.t)+'</b>'+
+    '<button class="speak" data-act="speak" data-t="'+esc(c.t)+'" aria-label="朗读">🔊</button>'+
+    (c.zh?'<span class="zh" style="font-size:16px">'+esc(c.zh)+'</span>':'')+'</div>'+
+    (c.busy?'<p class="small muted">正在查…</p>':
+      (c.defs&&c.defs.length?c.defs.slice(0,3).map(g=>'<p class="small"><span class="tag">'+esc(posName(g.p))+'</span> '+esc(g.d[0].e)+'</p>').join('')
+        :'<p class="small muted">词典里没有查到英文释义。</p>'))+'</div>';
+}
+function redrawRel(k){const el=document.querySelector('[data-rel="'+k+'"]');if(el&&ui.editRel!==k)el.innerHTML=relHTML(k)}
+const chipCache={};
+const splitList=v=>String(v||'').split(/[,，、;；\n]+/).map(x=>x.trim()).filter(Boolean).slice(0,12);
+function relHTML(k){
+  const w=S.words[k];if(!w)return'';
+  if(ui.editRel===k)return '<div class="stack" style="gap:8px">'+
+    '<label class="small muted" for="rel-more">我补充的释义（这个词的其他意思）</label><input id="rel-more" type="text" value="'+esc(w.more||'')+'" placeholder="例如：adj. 均匀的；一致的" data-enter="saveRel" autocomplete="off">'+
+    '<label class="small muted" for="rel-syn">近义词（用逗号隔开）</label><input id="rel-syn" type="text" value="'+esc((w.syn||[]).join(', '))+'" placeholder="例如：glad, cheerful" data-enter="saveRel" autocomplete="off" autocapitalize="off">'+
+    '<label class="small muted" for="rel-ant">反义词（用逗号隔开）</label><input id="rel-ant" type="text" value="'+esc((w.ant||[]).join(', '))+'" placeholder="例如：sad, unhappy" data-enter="saveRel" autocomplete="off" autocapitalize="off">'+
+    '<div class="row"><button class="btn primary" data-act="saveRel" data-k="'+k+'">保存</button><button class="btn" data-act="cancelRel">取消</button></div></div>';
+  const chips=a=>a.map(x=>'<button class="chip" data-act="chip" data-k="'+k+'" data-t="'+esc(x)+'" aria-pressed="'+(ui.chip&&ui.chip.k===k&&ui.chip.t===x)+'">'+esc(x)+'</button>').join('');
+  const syn=w.syn||[],ant=w.ant||[],loading=!w.rel&&!relTried[k]&&!/\s/.test(w.w)&&w.src!=='talk';
+  return (w.more?'<p class="more"><span class="muted small">我补充的释义</span> '+esc(w.more)+'</p>':'')+
+    (syn.length?'<p class="rl"><span class="muted small">近义词</span>'+chips(syn)+'</p>':'')+
+    (ant.length?'<p class="rl"><span class="muted small">反义词</span>'+chips(ant)+'</p>':'')+
+    (loading?'<p class="small muted">正在查找近义词和反义词…</p>':'')+chipBoxHTML(k)+
+    '<div class="row small"><button class="btn ghost" data-act="editRel" data-k="'+k+'">＋ 补充释义 / 修改近义词、反义词</button></div>';
+}
+async function autoRel(){
+  for(const el of document.querySelectorAll('[data-rel]')){
+    const k=el.dataset.rel,w=S.words[k];
+    if(!w||w.rel||relTried[k]||/\s/.test(w.w)||w.src==='talk')continue;
+    relTried[k]=1;
+    try{
+      const dm=q=>fetch('https://api.datamuse.com/words?md=f&'+q+encodeURIComponent(w.w)).then(x=>x.ok?x.json():Promise.reject());
+      const fq=x=>{const t=(x.tags||[]).find(t=>t.indexOf('f:')===0);return t?+t.slice(2):0};
+      const ok=x=>x.word&&!/\s/.test(x.word)&&x.word.toLowerCase()!==w.w.toLowerCase();
+      const [ml,an]=await Promise.all([dm('max=60&ml='),dm('max=30&rel_ant=')]);
+      const syn=ml.filter(x=>ok(x)&&(x.tags||[]).indexOf('syn')>=0&&fq(x)>=2).map(x=>x.word);
+      const ant=an.filter(x=>ok(x)&&fq(x)>=1).sort((a,b)=>fq(b)-fq(a)).map(x=>x.word);
+      const cur=S.words[k];if(!cur||cur.rel)continue;
+      cur.syn=syn.slice(0,4);cur.ant=ant.slice(0,3);cur.rel=1;persist(k);
+    }catch(e){}
+    const now=document.querySelector('[data-rel="'+k+'"]');
+    if(now&&ui.editRel!==k)now.innerHTML=relHTML(k);
+  }
+}
 function cardHTML(k,extra){
   const w=S.words[k];if(!w)return'';
   return '<article class="panel">'+
@@ -601,11 +827,13 @@ function cardHTML(k,extra){
     '<div class="stack" style="gap:4px;flex:1 1 200px"><h2 class="word">'+esc(w.w)+'</h2>'+
     '<div class="meta"><button class="speak" data-act="speak" data-t="'+esc(w.w)+'" aria-label="朗读">🔊</button>'+
     '<span>'+esc(w.ipa)+'</span><span>'+esc(w.pos)+'</span><span class="tag">'+(w.cat==='formal'?'正式':'日常')+'</span>'+
-    '<span class="tag">'+(w.src==='mine'?'我输入的':'每日推送')+'</span></div></div></div>'+
-    '<div class="row small muted"><button class="btn ghost" data-act="nextImg" data-k="'+k+'">换一张图</button>'+
-    '<a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/search?tbm=isch&q='+encodeURIComponent(w.q||w.w)+'">在 Google 图片中搜索 ↗</a>'+
-    '<span>复制一张图片后在本页按 Ctrl/⌘+V，可以换成你选的图</span></div>'+
+    '<span class="tag">'+(w.src==='mine'?'我输入的':w.src==='talk'?'生活口语':'每日推送')+'</span></div></div></div>'+
+    (isTalk(w)&&!qOf(w)?'':'<div class="row small muted"><button class="btn ghost" data-act="nextImg" data-k="'+k+'">换一张图</button>'+
+    '<a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/search?tbm=isch&q='+encodeURIComponent(qOf(w)||w.w)+'">在 Google 图片中搜索 ↗</a>'+
+    '<span>复制一张图片后在本页按 Ctrl/⌘+V，可以换成你选的图</span></div>')+
     '<p class="zh">'+esc(w.zh)+'</p>'+
+    '<div class="rel" data-rel="'+k+'">'+relHTML(k)+'</div>'+
+    (w.src==='talk'?'':'<div class="defs" data-defs="'+k+'">'+defsHTML(k)+'</div>')+
     '<ol class="ex">'+w.ex.map((e,i)=>'<li><span class="k">'+(i+1)+'.</span><span class="en">'+hl(e.en,w.w)+
       ' <button class="speak" data-act="speak" data-t="'+esc(e.en)+'" aria-label="朗读例句">🔊</button></span><span class="cn">'+esc(e.zh)+'</span></li>').join('')+'</ol>'+
     (w.tip?'<p class="tip">💡 '+esc(w.tip)+'</p>':'')+
@@ -619,6 +847,20 @@ const settingsHTML=()=>'<div class="row small muted"><label for="set-level">难�
   '<button class="btn ghost" data-act="retest">重做水平测试</button><button class="btn ghost" data-act="exportData">导出备份</button><button class="btn ghost" data-act="importData">导入备份</button><input type="file" id="imp" accept=".json,application/json" hidden></div>';
 
 const V={};
+V.talk=function(){
+  if(!ui.ready)return '<div class="row"><span class="spin"></span><span class="muted">正在读取你的学习记录…</span></div>';
+  if(!(S.meta.talk||{})[today()])genTalk();
+  const list=talkList();
+  if(!list.length)return '<section class="panel"><h2>生活口语</h2><p class="muted">'+esc(ui.talkErr||'今天的口语还没准备好。')+'</p></section>';
+  ui.tidx=Math.min(ui.tidx||0,list.length-1);
+  const k=list[ui.tidx];
+  return '<div class="row spread"><h2>今天的 '+list.length+' 句生活口语 · '+esc(today())+'</h2><span class="muted small">'+(ui.tidx+1)+' / '+list.length+'</span></div>'+
+    '<p class="small muted" style="margin:0">日常聊天、点餐、买东西时真正会说的话。学过的会和单词一起进入“复习”和“打字练习”。</p>'+
+    '<div class="chips">'+list.map((x,i)=>'<button class="chip'+(S.words[x].box>=5?' known':'')+'" data-act="tgo" data-i="'+i+'" aria-current="'+(i===ui.tidx)+'">'+esc(S.words[x].w)+'</button>').join('')+'</div>'+
+    cardHTML(k,'<button class="btn" data-act="tprev"'+(ui.tidx?'':' disabled')+'>上一句</button>'+
+      (ui.tidx<list.length-1?'<button class="btn primary" data-act="tnext">下一句</button>':'<button class="btn primary" data-act="tab" data-tab="review">学完了，去测一测</button>')+
+      '<button class="btn" data-act="pracWord" data-k="'+k+'">打字练习</button>');
+};
 V.today=function(){
   if(ui.test)return testHTML();
   if(!ui.ready)return '<div class="row"><span class="spin"></span><span class="muted">正在读取你的学习记录…</span></div>';
@@ -686,7 +928,7 @@ function listHTML(keys){
   }).join('')+'</div>';
 }
 V.lib=function(){
-  const t=today(),F={all:['全部',()=>true],push:['每日推送',w=>w.src!=='mine'],mine:['我输入的',w=>w.src==='mine'],due:['待复习',w=>w.due<=t],done:['已掌握',w=>w.box>=5]};
+  const t=today(),F={all:['全部',()=>true],push:['每日推送',w=>w.src!=='mine'&&w.src!=='talk'],talk:['生活口语',w=>w.src==='talk'],mine:['我输入的',w=>w.src==='mine'],due:['待复习',w=>w.due<=t],done:['已掌握',w=>w.box>=5]};
   const keys=all().filter(k=>F[ui.lib][1](S.words[k])).sort((a,b)=>S.words[a].added<S.words[b].added?1:(S.words[a].added>S.words[b].added?-1:0));
   return '<div class="chips">'+Object.keys(F).map(f=>'<button class="chip" data-act="lib" data-f="'+f+'" aria-current="'+(f===ui.lib)+'">'+F[f][0]+' '+all().filter(k=>F[f][1](S.words[k])).length+'</button>').join('')+'</div>'+
     (keys.length?listHTML(keys):'<p class="muted">这里还没有词。</p>');
@@ -840,7 +1082,7 @@ function checkMake(){
 }
 
 /* ---------- render + events ---------- */
-const TABS=[['today','今日推送'],['mine','我的单词'],['review','复习'],['prac','打字练习'],['lib','词库']];
+const TABS=[['today','今日推送'],['talk','生活口语'],['mine','我的单词'],['review','复习'],['prac','打字练习'],['lib','词库']];
 function render(){
   const due=dueList().length,m=S.meta;
   $('#stats').innerHTML=(m.level!=null?'等级 <b>'+LV[m.level]+'</b> · ':'')+'连续 <b>'+m.streak+'</b> 天 · 词库 <b>'+all().length+'</b> · 已掌握 <b>'+all().filter(k=>S.words[k].box>=5).length+'</b>';
@@ -848,12 +1090,15 @@ function render(){
   $('#view').innerHTML=V[ui.tab]();
   renderSync();
   autoImages();
+  autoRel();
+  autoDefs();
   const f=$('#view [data-focus]');
   if(f){f.focus({preventScroll:true});if(f.setSelectionRange&&f.type==='text'){const n=f.value.length;f.setSelectionRange(n,n)}}
 }
 const A={
-  tab(d){ui.tab=d.tab;ui.err='';ui.open=null;ui.del=null;render()},
-  go(d){ui.idx=+d.i;render()},prev(){ui.idx--;render()},next(){ui.idx++;render()},
+  tab(d){ui.editRel=null;ui.chip=null;ui.tab=d.tab;ui.err='';ui.open=null;ui.del=null;render()},
+  tgo(d){ui.editRel=null;ui.tidx=+d.i;render()},tprev(){ui.editRel=null;ui.tidx--;render()},tnext(){ui.editRel=null;ui.tidx++;render()},
+  go(d){ui.editRel=null;ui.idx=+d.i;render()},prev(){ui.editRel=null;ui.idx--;render()},next(){ui.editRel=null;ui.idx++;render()},
   speak(d){speak(d.t)},
   know(d){const w=S.words[d.k];w.box=5;w.due=addDays(today(),15);if(S.meta.known.indexOf(w.w)<0)S.meta.known.push(w.w);persist(d.k,'meta');render()},
   genDaily(){genDaily()},
@@ -882,6 +1127,21 @@ const A={
   hint(){ui.prac.hint=true;render()},
   checkMake(){checkMake()},
   nextImg(d){nextImg(d.k)},
+  async chip(d){
+    if(ui.chip&&ui.chip.k===d.k&&ui.chip.t===d.t){ui.chip=null;redrawRel(d.k);return}
+    const c=ui.chip=chipCache[d.t]?Object.assign({k:d.k},chipCache[d.t]):{k:d.k,t:d.t,busy:true};
+    redrawRel(d.k);if(!c.busy)return;
+    const [zh,defs]=await Promise.all([cnFull(d.t).catch(()=>'').then(v=>v||tr(d.t)),fetchDefs(d.t).catch(()=>[])]);
+    c.zh=zh;c.defs=defs;c.busy=false;chipCache[d.t]={t:d.t,zh:zh,defs:defs};
+    if(ui.chip===c)redrawRel(d.k)},
+  async trDef(d){const w=S.words[d.k],x=w&&w.defs&&w.defs[+d.g]&&w.defs[+d.g].d[+d.d];if(!x||x.z)return;
+    const z=await tr(x.e);if(!z)return;x.z=z;persist(d.k);
+    const el=document.querySelector('[data-defs="'+d.k+'"]');if(el)el.innerHTML=defsHTML(d.k)},
+  editRel(d){ui.editRel=d.k;const el=document.querySelector('[data-rel="'+d.k+'"]');if(el){el.innerHTML=relHTML(d.k);const f=$('#rel-more');if(f)f.focus()}},
+  cancelRel(){const k=ui.editRel;ui.editRel=null;const el=document.querySelector('[data-rel="'+k+'"]');if(el)el.innerHTML=relHTML(k)},
+  saveRel(d){const k=(d&&d.k)||ui.editRel,w=S.words[k];if(!w)return;
+    w.more=$('#rel-more').value.trim();w.syn=splitList($('#rel-syn').value);w.ant=splitList($('#rel-ant').value);w.rel=1;
+    ui.editRel=null;persist(k);const el=document.querySelector('[data-rel="'+k+'"]');if(el)el.innerHTML=relHTML(k)},
   toggleSync(){ui.showSync=!ui.showSync;ui.linkMsg='';const a=document.activeElement;if(a&&a.blur)a.blur();renderSync()},
   copyLink(){const u=location.origin+location.pathname+'#t='+syncCfg.token;
     const done=ok=>{ui.linkMsg=ok?'已复制，发给自己后在另一台设备上打开':'复制失败，请换个浏览器再试';renderSync()};
