@@ -721,9 +721,10 @@ function renderSync(){
   const el=$('#syncbar');if(!el)return;
   if(document.activeElement&&document.activeElement.id==='sync-token')return;
   const on=!!(syncCfg&&syncCfg.token);
-  const bar=!on?'<div class="sb warn"><span>这台设备还没开启同步，学习记录只存在这一个浏览器里。</span><button class="btn primary" data-act="toggleSync">开启同步</button></div>'
+  const nv=ui.newVer?'<div class="sb warn"><span>网页有新版本。</span><button class="btn primary" data-act="reloadNow">立即更新</button></div>':'';
+  const bar=nv+(!on?'<div class="sb warn"><span>这台设备还没开启同步，学习记录只存在这一个浏览器里。</span><button class="btn primary" data-act="toggleSync">开启同步</button></div>'
     :ui.syncBad?'<div class="sb warn"><span>'+esc(ui.sync)+'</span><button class="btn primary" data-act="toggleSync">重新粘贴令牌</button></div>'
-    :'<div class="sb"><span>'+esc(ui.sync||'同步已开启')+'</span><button class="btn ghost" data-act="toggleSync">同步设置</button></div>';
+    :'<div class="sb"><span>'+esc(ui.sync||'同步已开启')+'</span><button class="btn ghost" data-act="toggleSync">同步设置</button></div>');
   el.innerHTML=bar+syncPanelHTML();
 }
 function gh(path,opt){
@@ -776,7 +777,25 @@ async function syncNow(){
   if(syncAgain){syncAgain=false;queueSync()}
 }
 function queueSync(){if(!syncCfg||!syncCfg.token)return;clearTimeout(syncTimer);syncTimer=setTimeout(syncNow,2500)}
-document.addEventListener('visibilitychange',()=>{if(!document.hidden&&ui.ready)syncNow()});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&ui.ready){syncNow();checkUpdate()}});
+/* ---------- self-update: reload when a newer page has been published ---------- */
+const pageFp=doc=>Array.from(doc.querySelectorAll('script,style')).map(x=>x.textContent.length).join(',');
+let updAt=0;
+const updBusy=()=>!!(ui.rev||ui.test||ui.editRel||(ui.iv&&ui.iv.t==='Q')||(ui.prac&&ui.prac.typed)||(document.activeElement&&/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)));
+async function checkUpdate(){
+  if(location.protocol==='file:'||Date.now()-updAt<300000)return;updAt=Date.now();
+  try{
+    const r=await fetch(location.pathname+'?_='+Date.now(),{cache:'no-store'});if(!r.ok)return;
+    const t=await r.text();if(t.indexOf('id="bank"')<0)return;
+    const fp=pageFp(new DOMParser().parseFromString(t,'text/html'));
+    if(fp===pageFp(document))return;
+    let tried='';try{tried=sessionStorage.getItem('d10upd')||''}catch(e){}
+    if(tried===fp)return;
+    await fetch(location.pathname,{cache:'reload'}).then(x=>x.text()).catch(()=>{});
+    ui.newVer=fp;
+    if(updBusy())renderSync();else A.reloadNow();
+  }catch(e){}
+}
 function syncPanelHTML(){
   if(!ui.showSync)return'';
   const on=!!(syncCfg&&syncCfg.token);
@@ -834,6 +853,7 @@ async function boot(){
   applyHash();
   await Promise.race([syncNow(),new Promise(r=>setTimeout(r,8000))]);
   ui.ready=true;render();ensureToday();
+  setTimeout(checkUpdate,1500);
 }
 
 /* ---------- words ---------- */
@@ -1517,6 +1537,7 @@ function render(){
 }
 const A={
   tab(d){ui.editRel=null;ui.chip=null;ui.ipaPop=null;ui.tab=d.tab;ui.err='';ui.open=null;ui.del=null;render()},
+  reloadNow(){try{sessionStorage.setItem('d10upd',ui.newVer||'1')}catch(e){}location.reload()},
   ipaHome(){ui.iv=null;render()},
   ipaLesson(d){const L=+d.l,im=ipaMeta();ui.iv={t:'L',L:L,s:IPA.find(x=>x.L===L).s};if(!im.seen['d'+L]){im.seen['d'+L]=1;persist('meta')}render()},
   ipaSound(d){if(ui.iv&&ui.iv.t==='L'){ui.iv.s=d.s;render()}},
