@@ -87,6 +87,8 @@ textarea{width:100%;resize:vertical;min-height:72px}
 .rel .rl{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
 .rel input{width:100%}
 .chip.dim{opacity:.55}
+.ipab{background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;cursor:pointer;border-bottom:1px dotted var(--muted)}
+.ccat mark,.panel .btn mark{background:var(--mark);color:var(--mark-ink);border-radius:2px;padding:0 1px}
 .ccats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
 .ccat{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;padding:12px 14px;cursor:pointer;font:inherit}
 .ccat .e{font-size:26px;line-height:1.2}.ccat .t{font-weight:600;font-size:16px}
@@ -157,6 +159,68 @@ mark{background:var(--mark);color:var(--mark-ink);padding:0 .15em;border-radius:
   <main id="view"><p class="muted">加载中…</p></main>
 </div>
 
+<script type="text/plain" id="ipa">
+1|ɪ|嘴微张，短促放松，像“一”但更短更松，不要拉长。|s[i]t,b[i]g,f[i]sh,b[u]sy
+1|e|嘴半开，嘴角略向两边，短促。嘴比 /æ/ 小。|b[e]d,r[e]d,h[ea]d,fr[ie]nd
+1|æ|嘴张大、嘴角用力向两边拉，舌尖抵下齿。常被读成 /e/，记得嘴要张得更大。|[a]pple,b[a]g,h[a]ppy,c[a]t
+1|ɒ|嘴张圆，短促，像很短的“奥”。|h[o]t,b[o]x,w[a]tch,d[o]g
+1|ʌ|嘴自然张开，短促，像很短的“啊”。|c[u]p,b[u]s,m[o]ney,l[o]ve
+1|ʊ|嘴唇略圆、放松，短促，比 /uː/ 短而松。|b[oo]k,g[oo]d,p[u]t,c[ou]ld
+1|ə|最放松的音，嘴几乎不动，轻轻带过，只出现在非重读音节。|[a]bout,teach[er],sof[a],t[o]day
+2|iː|嘴角向两边像微笑，拉长，像“衣”。|s[ee],gr[ee]n,t[ea],p[eo]ple
+2|ɑː|嘴张大，舌头放低靠后，拉长，像看医生时说“啊”。英式里后面的 r 不卷舌。|c[ar],f[a]ther,st[ar]t,cl[a]ss
+2|ɔː|嘴唇收圆向前，拉长，像“哦”。|d[oor],f[our],t[al]k,w[a]ter
+2|uː|嘴唇收小收圆向前突，拉长，像“乌”。|t[oo],bl[ue],f[oo]d,sh[oe]
+2|ɜː|嘴微张、嘴唇放平，舌头居中，拉长，像拉长的“额”。英式不卷舌。|b[ir]d,w[or]k,n[ur]se,l[ear]n
+3|eɪ|从 /e/ 滑向 /ɪ/，像“诶”。不要读成单一的 /e/。|d[ay],n[a]me,r[ai]n,gr[ea]t
+3|aɪ|从“啊”滑向 /ɪ/，像“爱”。|m[y],t[i]me,n[igh]t,b[uy]
+3|ɔɪ|从 /ɔː/ 滑向 /ɪ/，像“哦一”连读。|b[oy],t[oy],c[oi]n,v[oi]ce
+3|aʊ|从“啊”滑向 /ʊ/，像“奥”。|n[ow],h[ou]se,d[ow]n,[ou]t
+3|əʊ|从 /ə/ 滑向 /ʊ/，像“欧”。|g[o],h[o]me,kn[ow],c[oa]t
+3|ɪə|从 /ɪ/ 滑向 /ə/，像“一额”连读。|h[ere],n[ear],[ear],b[eer]
+3|eə|从 /e/ 滑向 /ə/，像“诶额”连读。|h[air],wh[ere],c[are],b[ear]
+3|ʊə|从 /ʊ/ 滑向 /ə/，像“乌额”连读。现代英式里很多词改读 /ɔː/。|t[our],p[ure],c[ure],sec[ure]
+4|p|双唇闭紧再突然放开，送气，声带不振动。|[p]en,ha[pp]y,sto[p]
+4|b|口型同 /p/，但声带振动。|[b]ag,ta[b]le,jo[b]
+4|t|舌尖抵上齿龈再放开，送气。|[t]ea,be[tt]er,ca[t]
+4|d|口型同 /t/，声带振动。|[d]og,to[d]ay,be[d]
+4|k|舌根抵软腭再放开，送气。|[c]at,[k]ey,ba[ck]
+4|g|口型同 /k/，声带振动。|[g]o,bi[gg]er,ba[g]
+4|f|上齿轻咬下唇，气流从缝里出来。|[f]ood,co[ff]ee,lau[gh]
+4|v|口型同 /f/（上齿咬下唇），声带振动。最常被读成 /w/，一定要咬唇。|[v]ery,se[v]en,ha[v]e
+4|s|舌尖靠近上齿龈，气流嘶嘶地出来。|[s]un,ni[c]e,bu[s]
+4|z|口型同 /s/，声带振动，像蜜蜂嗡嗡。不要读成拼音的 z（“资”）。|[z]oo,ea[s]y,plea[s]e
+4|m|双唇闭合，气流从鼻子出来。词尾的 /m/ 要闭上嘴。|[m]ap,su[mm]er,ti[m]e
+4|n|舌尖抵上齿龈，气流从鼻子出来。|[n]o,di[nn]er,te[n]
+4|h|嘴张开轻轻呼气，比拼音的 h 轻得多。|[h]at,[h]ello,be[h]ind
+4|l|舌尖抵上齿龈，气流从舌头两边出来。词尾的 /l/ 舌尖也要抬起。|[l]ike,he[ll]o,ba[ll]
+4|r|舌尖向上卷但不碰任何地方，嘴唇略圆。不是拼音的 r，也不要读成 /l/。|[r]ed,so[rr]y,[wr]ite
+4|w|嘴唇收圆向前，再迅速滑开，牙齿不碰嘴唇。|[w]e,[wh]at,a[w]ay
+5|θ|舌尖轻轻放在上下齿之间吹气，声带不振动。最常被读成 /s/。|[th]ink,[th]ree,ba[th]
+5|ð|口型同 /θ/（咬舌尖），声带振动。最常被读成 /z/ 或 /d/。|[th]is,mo[th]er,wi[th]
+5|ʃ|嘴唇向前突成圆形，像让人安静的“嘘”。|[sh]e,fi[sh],na[ti]on
+5|ʒ|口型同 /ʃ/，声带振动。|u[s]ually,televi[si]on,plea[s]ure
+5|tʃ|先堵住再放开成 /ʃ/，像“吃”但嘴唇向前突。|[ch]air,tea[ch]er,wa[tch]
+5|dʒ|口型同 /tʃ/，声带振动，像“知”但嘴唇向前突。|[j]ob,a[g]e,bri[dge]
+5|ŋ|舌根抬起抵软腭，气流从鼻子出来，像“昂”的结尾。后面不要多加一个 g 的音。|si[ng],lo[ng],thi[n]k
+5|j|舌面抬高靠近上腭再滑开，像“耶”的开头。|[y]es,[y]ou,[u]se
+</script>
+<script type="text/plain" id="ipap">
+ɪ|iː|短而松 对 长而紧|ship,ʃɪp,sheep,ʃiːp;sit,sɪt,seat,siːt;live,lɪv,leave,liːv
+e|æ|嘴半开 对 嘴张大|bed,bed,bad,bæd;men,men,man,mæn;pen,pen,pan,pæn
+ʌ|ɑː|短 对 长|cut,kʌt,cart,kɑːt;much,mʌtʃ,march,mɑːtʃ;hut,hʌt,heart,hɑːt
+ɒ|ɔː|短 对 长|pot,pɒt,port,pɔːt;shot,ʃɒt,short,ʃɔːt;spot,spɒt,sport,spɔːt
+ʊ|uː|短而松 对 长而紧|full,fʊl,fool,fuːl;pull,pʊl,pool,puːl;look,lʊk,Luke,luːk
+e|eɪ|单一的音 对 滑动的音|wet,wet,wait,weɪt;pen,pen,pain,peɪn;let,let,late,leɪt
+θ|s|咬舌尖 对 不咬|think,θɪŋk,sink,sɪŋk;thick,θɪk,sick,sɪk;mouth,maʊθ,mouse,maʊs
+ð|d|咬舌尖 对 不咬|they,ðeɪ,day,deɪ;then,ðen,den,den;there,ðeə,dare,deə
+v|w|咬下唇 对 圆唇不咬|vest,vest,west,west;vine,vaɪn,wine,waɪn;vet,vet,wet,wet
+l|r|舌尖抵住 对 舌尖不碰|light,laɪt,right,raɪt;long,lɒŋ,wrong,rɒŋ;glass,glɑːs,grass,grɑːs
+l|n|气流走两边 对 气流走鼻子|light,laɪt,night,naɪt;low,ləʊ,no,nəʊ;life,laɪf,knife,naɪf
+n|ŋ|舌尖抵住 对 舌根抵住|thin,θɪn,thing,θɪŋ;sin,sɪn,sing,sɪŋ;ran,ræn,rang,ræŋ
+s|ʃ|嘴唇放平 对 嘴唇前突|see,siː,she,ʃiː;sip,sɪp,ship,ʃɪp;sue,suː,shoe,ʃuː
+ʃ|tʃ|不堵气 对 先堵再放|share,ʃeə,chair,tʃeə;wash,wɒʃ,watch,wɒtʃ;ship,ʃɪp,chip,tʃɪp
+</script>
 <script type="text/plain" id="chem">
 equip|beaker|||n.|烧杯|🧪||最常用的玻璃容器，用来盛放、混合或加热溶液。|Pour the solution into a clean beaker.|把溶液倒进一个干净的烧杯里。|The beaker holds 100 mL of water.|这个烧杯能装 100 毫升水。|I rinsed the beaker with deionized water.|我用去离子水冲洗了烧杯。
 equip|volumetric flask|||n.|容量瓶|🧪||用来配制准确浓度的溶液，瓶颈上有一条刻度线。|Use a volumetric flask to prepare the standard solution.|用容量瓶配制标准溶液。|Fill the volumetric flask up to the mark.|把容量瓶加到刻度线。|A 250 mL volumetric flask is on the bench.|实验台上有一个 250 毫升的容量瓶。
@@ -546,6 +610,51 @@ const BANK=document.getElementById('bank').textContent.trim().split('\n').map(l=
 const TALK=document.getElementById('talk').textContent.trim().split('\n').map(l=>{const a=l.split('|');
   return{w:a[0],ipa:'',pos:'口语',zh:a[1],emoji:a[2],q:'',cat:'life',tip:a[3],ex:[0,1,2].map(i=>({en:a[4+i*2],zh:a[5+i*2]}))}});
 const TALK_N=5;
+const IPA=document.getElementById('ipa').textContent.trim().split('\n').map(l=>{const a=l.split('|');return{L:+a[0],s:a[1],tip:a[2],w:a[3].split(',')}});
+const IPAP=document.getElementById('ipap').textContent.trim().split('\n').map(l=>{const a=l.split('|');return{a:a[0],b:a[1],tip:a[2],p:a[3].split(';').map(x=>x.split(','))}});
+const ILESS=[[1,'短元音','嘴型放松、发音短'],[2,'长元音','发音要拉长'],[3,'双元音','从一个音滑到另一个音'],[4,'辅音 · 和拼音相近','大部分和拼音差不多'],[5,'辅音 · 中文里没有','最容易读错的 8 个']];
+const IPAS={};IPA.forEach(x=>{IPAS[x.s]=x});
+const IALIAS={'ɡ':'g','i':'iː','u':'uː','ɛ':'e','oʊ':'əʊ','ɚ':'ə','ɝ':'ɜː','ɹ':'r','ɐ':'ʌ'};
+const plainW=w=>w.replace(/[\[\]]/g,'');
+const markW=w=>esc(w).replace(/\[/g,'<mark>').replace(/\]/g,'</mark>');
+const ipaWords=x=>x.w.map(w=>'<button class="btn" data-act="speak" data-t="'+esc(plainW(w))+'">🔊 '+markW(w)+'</button>').join('');
+function ipaTok(str){
+  const out=[];let i=0;
+  while(i<str.length){
+    const two=str.slice(i,i+2),one=str[i];
+    const t2=IPAS[two]?two:IALIAS[two],t1=IPAS[one]?one:IALIAS[one];
+    if(t2&&IPAS[t2]){out.push([two,t2]);i+=2}else if(t1&&IPAS[t1]){out.push([one,t1]);i++}else{out.push([one,'']);i++}
+  }
+  return out;
+}
+function ipaHTML(str,k){
+  if(!str)return'';
+  return ipaTok(str).map(t=>t[1]?'<button class="ipab" data-act="ipaPop" data-k="'+k+'" data-s="'+esc(t[1])+'">'+esc(t[0])+'</button>':esc(t[0])).join('');
+}
+function ipaPopHTML(k){
+  const pp=ui.ipaPop;if(!pp||pp.k!==k||!IPAS[pp.s])return'';
+  const x=IPAS[pp.s];
+  return '<div class="chipbox"><div class="row"><b style="font-size:20px">/'+esc(x.s)+'/</b><span class="small muted">'+esc(ILESS[x.L-1][1])+'</span></div><p class="small">'+esc(x.tip)+'</p><div class="row">'+ipaWords(x)+'</div></div>';
+}
+function ipaMeta(){const m=S.meta;if(!m.ipa)m.ipa={seen:{},bad:{}};if(!m.ipa.seen)m.ipa.seen={};if(!m.ipa.bad)m.ipa.bad={};return m.ipa}
+function ipaMakeQ(key){
+  const pick=a=>a[Math.floor(Math.random()*a.length)];
+  if(key.indexOf('s:')===0){
+    const x=IPAS[key.slice(2)],vow=x.L<=3;
+    const pool=shuffle(IPA.filter(y=>(y.L<=3)===vow&&y.s!==x.s)).slice(0,3).map(y=>y.s);
+    return{key:key,type:'sym',word:pick(x.w),ans:x.s,opts:shuffle([x.s].concat(pool)),tip:x.tip};
+  }
+  const P=IPAP[+key.slice(2)],row=pick(P.p),first=Math.random()<.5,type=Math.random()<.5?'read':'hear';
+  return{key:key,type:type,ans:first?row[0]:row[2],ipa:first?row[1]:row[3],opts:[row[0],row[2]],row:row,tip:'/'+P.a+'/ 和 /'+P.b+'/：'+P.tip};
+}
+function ipaStartQuiz(){
+  const im=ipaMeta(),seen=IPA.filter(x=>im.seen[x.L]),src=seen.length?seen:IPA;
+  const bad=shuffle(Object.keys(im.bad).filter(k=>k.indexOf('s:')===0?IPAS[k.slice(2)]:IPAP[+k.slice(2)]));
+  const fresh=shuffle(src.map(x=>'s:'+x.s).concat(IPAP.map((x,i)=>'p:'+i))).filter(k=>bad.indexOf(k)<0);
+  const keys=bad.concat(fresh).slice(0,10);
+  ui.iv={t:'Q',keys:shuffle(keys),i:0,right:0,cur:null,done:null};
+  ui.iv.cur=ipaMakeQ(ui.iv.keys[0]);
+}
 const CHEM=document.getElementById('chem').textContent.trim().split('\n').map(l=>{const a=l.split('|');
   return{sub:a[0],w:a[1],abbr:a[2],ipa:a[3],pos:a[4],zh:a[5]+(a[2]?'（'+a[2]+'）':''),emoji:a[6],q:a[7],cat:'formal',tip:a[8],ex:[0,1,2].map(i=>({en:a[9+i*2],zh:a[10+i*2]}))}});
 const CCATS=[['pt','元素周期表','⚛️'],['equip','实验器材','🧪'],['test','测试与表征','📈'],['echem','电化学','⚡'],['inorg','无机化学','🧱'],['pec','光电化学·半导体','☀️'],['ops','实验操作','🥄']];
@@ -884,9 +993,9 @@ document.addEventListener('paste',e=>{
 const player=new Audio();let speakN=0;
 function speakTTS(text){
   try{
-    const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=.9;
-    const vs=speechSynthesis.getVoices().filter(v=>/^en[-_]US/i.test(v.lang));
-    const v=vs.find(v=>/Samantha|Ava|Allison|Google US English|Aria|Jenny/i.test(v.name))||vs[0];
+    const u=new SpeechSynthesisUtterance(text);u.lang='en-GB';u.rate=.9;
+    const vs=speechSynthesis.getVoices().filter(v=>/^en[-_](GB|AU)/i.test(v.lang));
+    const v=vs.find(v=>/Daniel|Kate|Serena|Karen|Google UK English|Sonia|Libby/i.test(v.name))||vs[0];
     if(v)u.voice=v;
     speechSynthesis.cancel();speechSynthesis.speak(u);
   }catch(e){}
@@ -894,7 +1003,7 @@ function speakTTS(text){
 function speak(text){
   text=String(text||'').trim();if(!text)return;
   const n=++speakN,q=encodeURIComponent(text);
-  const yd='https://dict.youdao.com/dictvoice?type=2&audio='+q,bd='https://fanyi.baidu.com/gettts?lan=en&spd=3&source=web&text='+q;
+  const yd='https://dict.youdao.com/dictvoice?type=1&audio='+q,bd='https://fanyi.baidu.com/gettts?lan=uk&spd=3&source=web&text='+q;
   const urls=/\s/.test(text)?[bd,yd]:[yd,bd];
   try{speechSynthesis.cancel()}catch(e){}
   let i=0;
@@ -1060,8 +1169,9 @@ function cardHTML(k,extra){
     '<div class="card-top">'+picHTML(ui.cardK=k)+
     '<div class="stack" style="gap:4px;flex:1 1 200px"><h2 class="word">'+esc(w.w)+'</h2>'+
     '<div class="meta"><button class="speak" data-act="speak" data-t="'+esc(w.w)+'" aria-label="朗读">🔊</button>'+
-    '<span>'+esc(w.ipa)+'</span><span>'+esc(w.pos)+'</span><span class="tag">'+(w.cat==='formal'?'正式':'日常')+'</span>'+
+    '<span>'+ipaHTML(w.ipa,k)+'</span><span>'+esc(w.pos)+'</span><span class="tag">'+(w.cat==='formal'?'正式':'日常')+'</span>'+
     '<span class="tag">'+(w.src==='mine'?'我输入的':w.src==='talk'?'生活口语':w.src==='chem'?'化学':'每日推送')+'</span></div></div></div>'+
+    ipaPopHTML(k)+
     (isTalk(w)&&!qOf(w)?'':'<div class="row small muted"><button class="btn ghost" data-act="nextImg" data-k="'+k+'">换一张图</button>'+
     '<a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/search?tbm=isch&q='+encodeURIComponent(qOf(w)||w.w)+'">在 Google 图片中搜索 ↗</a>'+
     '<span>复制一张图片后在本页按 Ctrl/⌘+V，可以换成你选的图</span></div>')+
@@ -1081,6 +1191,46 @@ const settingsHTML=()=>'<div class="row small muted"><label for="set-level">难�
   '<button class="btn ghost" data-act="retest">重做水平测试</button><button class="btn ghost" data-act="exportData">导出备份</button><button class="btn ghost" data-act="importData">导入备份</button><input type="file" id="imp" accept=".json,application/json" hidden></div>';
 
 const V={};
+V.ipa=function(){
+  if(!ui.ready)return '<div class="row"><span class="spin"></span><span class="muted">正在读取你的学习记录…</span></div>';
+  const v=ui.iv,im=ipaMeta(),back='<button class="btn ghost" data-act="ipaHome">← 音标首页</button>';
+  if(!v){
+    const nb=Object.keys(im.bad).length;
+    return '<div class="row spread"><h2>音标 · 英式发音</h2></div>'+
+      '<p class="small muted" style="margin:0">44 个音分成 5 课，建议一天一课。先听例词、看嘴型说明，再去“容易混的音”里对比，最后测一测（只做选择，不用打字）。</p>'+
+      '<div class="ccats">'+ILESS.map(l=>'<button class="ccat" data-act="ipaLesson" data-l="'+l[0]+'"><span class="t">第 '+l[0]+' 课 · '+l[1]+'</span><span class="small">'+IPA.filter(x=>x.L===l[0]).map(x=>esc(x.s)).join(' ')+'</span><span class="small muted">'+l[2]+(im.seen[l[0]]?' · 已学':'')+'</span></button>').join('')+
+      '<button class="ccat" data-act="ipaPairs"><span class="t">容易混的音</span><span class="small">ship / sheep，think / sink …</span><span class="small muted">'+IPAP.length+' 组对比，点一下听一个</span></button></div>'+
+      '<div class="row"><button class="btn primary" data-act="ipaQuiz">测一测（10 题）</button>'+(nb?'<span class="small muted">有 '+nb+' 个音上次答错了，会先考这些</span>':'')+'</div>';
+  }
+  if(v.t==='L'){
+    const list=IPA.filter(x=>x.L===v.L),x=IPAS[v.s]||list[0],i=list.indexOf(x),L=ILESS[v.L-1];
+    return '<div class="row spread"><h2>第 '+L[0]+' 课 · '+L[1]+'</h2>'+back+'</div>'+
+      '<div class="chips">'+list.map(y=>'<button class="chip" style="font-size:17px" data-act="ipaSound" data-s="'+esc(y.s)+'" aria-current="'+(y===x)+'">'+esc(y.s)+'</button>').join('')+'</div>'+
+      '<section class="panel"><div class="row"><span class="elbig">'+esc(x.s)+'</span><p style="flex:1 1 220px;margin:0">'+esc(x.tip)+'</p></div>'+
+      '<p class="small muted" style="margin:0">点例词听发音，注意标黄的字母：</p><div class="row">'+ipaWords(x)+'</div>'+
+      '<div class="row"><button class="btn" data-act="ipaSound" data-s="'+esc((list[i-1]||x).s)+'"'+(i?'':' disabled')+'>上一个</button>'+
+      (i<list.length-1?'<button class="btn primary" data-act="ipaSound" data-s="'+esc(list[i+1].s)+'">下一个</button>':'<button class="btn primary" data-act="ipaPairs">学完了，去对比容易混的音</button>')+'</div></section>';
+  }
+  if(v.t==='P')return '<div class="row spread"><h2>容易混的音</h2>'+back+'</div>'+
+    '<p class="small muted" style="margin:0">左右两个词只差一个音。轮流点，听出区别。</p>'+
+    IPAP.map(P=>'<section class="panel"><div class="row"><b style="font-size:18px">/'+esc(P.a)+'/ 对 /'+esc(P.b)+'/</b><span class="small muted">'+esc(P.tip)+'</span></div>'+
+      P.p.map(r=>'<div class="opts"><button class="btn" data-act="speak" data-t="'+esc(r[0])+'">🔊 '+esc(r[0])+' <span class="muted">/'+esc(r[1])+'/</span></button><button class="btn" data-act="speak" data-t="'+esc(r[2])+'">🔊 '+esc(r[2])+' <span class="muted">/'+esc(r[3])+'/</span></button></div>').join('')+'</section>').join('');
+  if(!v.cur)return '<section class="panel"><h2>这一轮完成了</h2><p>答对 <b>'+v.right+'</b> / '+v.keys.length+'。</p>'+
+    '<p class="muted">'+(Object.keys(im.bad).length?'答错的音已经记下，下次测试会先考。':'全部答对。')+'</p>'+
+    '<div class="row"><button class="btn primary" data-act="ipaQuiz">再来一轮</button>'+back+'</div></section>';
+  const q=v.cur,d=v.done;
+  let body;
+  if(q.type==='sym')body='<p class="muted">标黄的部分发哪个音？</p><div class="row"><span class="qsent" style="font-size:30px">'+markW(q.word)+'</span><button class="speak" data-act="speak" data-t="'+esc(plainW(q.word))+'" aria-label="朗读">🔊</button></div>';
+  else if(q.type==='read')body='<p class="muted">这个音标是哪个词？</p><p class="qsent" style="font-size:30px">/'+esc(q.ipa)+'/</p>';
+  else body='<p class="muted">听一听，是哪个词？</p><div class="row"><button class="btn primary" data-act="speak" data-t="'+esc(q.ans)+'">🔊 再听一遍</button></div>';
+  return '<section class="panel"><div class="row spread"><h2>音标测试</h2><span class="muted small">'+(v.i+1)+' / '+v.keys.length+'</span></div>'+
+    '<div class="bar"><i style="width:'+(v.i/v.keys.length*100)+'%"></i></div>'+body+
+    '<div class="opts">'+q.opts.map(o=>'<button class="btn'+(d?(o===q.ans?' primary':''):'')+'" data-act="ipaAns" data-v="'+esc(o)+'"'+(d?' disabled':'')+'>'+(q.type==='sym'?'/'+esc(o)+'/':esc(o))+'</button>').join('')+'</div>'+
+    (d?'<p class="'+(d.ok?'':'err')+'">'+(d.ok?'✓ 答对了':'✗ 正确答案是 '+(q.type==='sym'?'/'+esc(q.ans)+'/':esc(q.ans)+' /'+esc(q.ipa)+'/'))+'</p><p class="tip">💡 '+esc(q.tip)+'</p>'+
+      (q.row?'<div class="opts"><button class="btn" data-act="speak" data-t="'+esc(q.row[0])+'">🔊 '+esc(q.row[0])+' <span class="muted">/'+esc(q.row[1])+'/</span></button><button class="btn" data-act="speak" data-t="'+esc(q.row[2])+'">🔊 '+esc(q.row[2])+' <span class="muted">/'+esc(q.row[3])+'/</span></button></div>':'')+
+      '<div class="row"><button class="btn primary" data-act="ipaNext">'+(v.i<v.keys.length-1?'下一题':'看结果')+'</button></div>':'')+
+    '<div class="row">'+back+'</div></section>';
+};
 V.chem=function(){
   if(!ui.ready)return '<div class="row"><span class="spin"></span><span class="muted">正在读取你的学习记录…</span></div>';
   const cat=ui.ccat;
@@ -1342,7 +1492,7 @@ function checkMake(){
 }
 
 /* ---------- render + events ---------- */
-const TABS=[['today','今日推送'],['talk','生活口语'],['chem','化学'],['mine','我的单词'],['review','复习'],['prac','打字练习'],['lib','词库']];
+const TABS=[['today','今日推送'],['talk','生活口语'],['chem','化学'],['ipa','音标'],['mine','我的单词'],['review','复习'],['prac','打字练习'],['lib','词库']];
 function render(){
   const due=dueList().length,m=S.meta;
   $('#stats').innerHTML=(m.level!=null?'等级 <b>'+LV[m.level]+'</b> · ':'')+'连续 <b>'+m.streak+'</b> 天 · 词库 <b>'+all().length+'</b> · 已掌握 <b>'+all().filter(k=>S.words[k].box>=5).length+'</b>';
@@ -1356,13 +1506,23 @@ function render(){
   if(f){f.focus({preventScroll:true});if(f.setSelectionRange&&f.type==='text'){const n=f.value.length;f.setSelectionRange(n,n)}}
 }
 const A={
-  tab(d){ui.editRel=null;ui.chip=null;ui.tab=d.tab;ui.err='';ui.open=null;ui.del=null;render()},
+  tab(d){ui.editRel=null;ui.chip=null;ui.ipaPop=null;ui.tab=d.tab;ui.err='';ui.open=null;ui.del=null;render()},
+  ipaHome(){ui.iv=null;render()},
+  ipaLesson(d){const L=+d.l,im=ipaMeta();ui.iv={t:'L',L:L,s:IPA.find(x=>x.L===L).s};if(!im.seen[L]){im.seen[L]=1;persist('meta')}render()},
+  ipaSound(d){if(ui.iv&&ui.iv.t==='L'){ui.iv.s=d.s;render()}},
+  ipaPairs(){ui.iv={t:'P'};render();window.scrollTo(0,0)},
+  ipaQuiz(){ipaStartQuiz();render();const q=ui.iv.cur;if(q.type==='hear')speak(q.ans)},
+  ipaAns(d){const v=ui.iv;if(!v||v.t!=='Q'||!v.cur||v.done)return;const q=v.cur,ok=d.v===q.ans,im=ipaMeta();
+    v.done={ok:ok};if(ok){v.right++;delete im.bad[q.key]}else im.bad[q.key]=1;persist('meta');render();
+    if(q.type!=='read')speak(q.type==='sym'?plainW(q.word):q.ans)},
+  ipaNext(){const v=ui.iv;if(!v||v.t!=='Q')return;v.i++;v.done=null;v.cur=v.i<v.keys.length?ipaMakeQ(v.keys[v.i]):null;render();if(v.cur&&v.cur.type==='hear')speak(v.cur.ans)},
+  ipaPop(d){ui.ipaPop=ui.ipaPop&&ui.ipaPop.k===d.k&&ui.ipaPop.s===d.s?null:{k:d.k,s:d.s};render()},
   ccat(d){ui.editRel=null;ui.ccat=d.c||null;ui.cterm=null;ui.cel=null;render()},
   cterm(d){ui.editRel=null;const it=CHEM.filter(x=>x.sub===d.c)[+d.i];if(!it)return;ui.cterm=chemOpen(it);render()},
   el(d){ui.editRel=null;ui.cel=+d.z;render()},
   elAdd(d){const e=ELS[+d.z-1];if(!e)return;chemOpen(elItem(e));render()},
   tgo(d){ui.editRel=null;ui.tidx=+d.i;render()},tprev(){ui.editRel=null;ui.tidx--;render()},tnext(){ui.editRel=null;ui.tidx++;render()},
-  go(d){ui.editRel=null;ui.idx=+d.i;render()},prev(){ui.editRel=null;ui.idx--;render()},next(){ui.editRel=null;ui.idx++;render()},
+  go(d){ui.ipaPop=null;ui.editRel=null;ui.idx=+d.i;render()},prev(){ui.editRel=null;ui.idx--;render()},next(){ui.editRel=null;ui.idx++;render()},
   speak(d){speak(d.t)},
   know(d){const w=S.words[d.k];w.box=5;w.due=addDays(today(),15);if(S.meta.known.indexOf(w.w)<0)S.meta.known.push(w.w);persist(d.k,'meta');render()},
   genDaily(){genDaily()},
