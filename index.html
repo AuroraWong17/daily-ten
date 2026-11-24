@@ -87,6 +87,11 @@ textarea{width:100%;resize:vertical;min-height:72px}
 .rel .rl{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
 .rel input{width:100%}
 .chip.dim{opacity:.55}
+.iwts{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+.iwt{display:flex;flex-direction:column;align-items:center;gap:6px;border:1px solid var(--line);background:none;color:var(--ink);border-radius:12px;padding:8px;cursor:pointer;font:inherit;font-size:17px}
+.iwt mark{background:var(--mark);color:var(--mark-ink);border-radius:2px;padding:0 1px}
+.iwp{width:100%;aspect-ratio:1;border-radius:8px;overflow:hidden;background:var(--sunk);display:block}
+.iwp img{width:100%;height:100%;object-fit:cover;display:block}
 .ipab{background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;cursor:pointer;border-bottom:1px dotted var(--muted)}
 .ccat mark,.panel .btn mark{background:var(--mark);color:var(--mark-ink);border-radius:2px;padding:0 1px}
 .ccats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
@@ -160,50 +165,50 @@ mark{background:var(--mark);color:var(--mark-ink);padding:0 .15em;border-radius:
 </div>
 
 <script type="text/plain" id="ipa">
-1|ɪ|嘴微张，短促放松，像“一”但更短更松，不要拉长。|s[i]t,b[i]g,f[i]sh,b[u]sy
-1|e|嘴半开，嘴角略向两边，短促。嘴比 /æ/ 小。|b[e]d,r[e]d,h[ea]d,fr[ie]nd
-1|æ|嘴张大、嘴角用力向两边拉，舌尖抵下齿。常被读成 /e/，记得嘴要张得更大。|[a]pple,b[a]g,h[a]ppy,c[a]t
-1|ɒ|嘴张圆，短促，像很短的“奥”。|h[o]t,b[o]x,w[a]tch,d[o]g
-1|ʌ|嘴自然张开，短促，像很短的“啊”。|c[u]p,b[u]s,m[o]ney,l[o]ve
-1|ʊ|嘴唇略圆、放松，短促，比 /uː/ 短而松。|b[oo]k,g[oo]d,p[u]t,c[ou]ld
-1|ə|最放松的音，嘴几乎不动，轻轻带过，只出现在非重读音节。|[a]bout,teach[er],sof[a],t[o]day
-2|iː|嘴角向两边像微笑，拉长，像“衣”。|s[ee],gr[ee]n,t[ea],p[eo]ple
-2|ɑː|嘴张大，舌头放低靠后，拉长，像看医生时说“啊”。英式里后面的 r 不卷舌。|c[ar],f[a]ther,st[ar]t,cl[a]ss
-2|ɔː|嘴唇收圆向前，拉长，像“哦”。|d[oor],f[our],t[al]k,w[a]ter
-2|uː|嘴唇收小收圆向前突，拉长，像“乌”。|t[oo],bl[ue],f[oo]d,sh[oe]
-2|ɜː|嘴微张、嘴唇放平，舌头居中，拉长，像拉长的“额”。英式不卷舌。|b[ir]d,w[or]k,n[ur]se,l[ear]n
-3|eɪ|从 /e/ 滑向 /ɪ/，像“诶”。不要读成单一的 /e/。|d[ay],n[a]me,r[ai]n,gr[ea]t
-3|aɪ|从“啊”滑向 /ɪ/，像“爱”。|m[y],t[i]me,n[igh]t,b[uy]
-3|ɔɪ|从 /ɔː/ 滑向 /ɪ/，像“哦一”连读。|b[oy],t[oy],c[oi]n,v[oi]ce
-3|aʊ|从“啊”滑向 /ʊ/，像“奥”。|n[ow],h[ou]se,d[ow]n,[ou]t
-3|əʊ|从 /ə/ 滑向 /ʊ/，像“欧”。|g[o],h[o]me,kn[ow],c[oa]t
-3|ɪə|从 /ɪ/ 滑向 /ə/，像“一额”连读。|h[ere],n[ear],[ear],b[eer]
-3|eə|从 /e/ 滑向 /ə/，像“诶额”连读。|h[air],wh[ere],c[are],b[ear]
-3|ʊə|从 /ʊ/ 滑向 /ə/，像“乌额”连读。现代英式里很多词改读 /ɔː/。|t[our],p[ure],c[ure],sec[ure]
-4|p|双唇闭紧再突然放开，送气，声带不振动。|[p]en,ha[pp]y,sto[p]
-4|b|口型同 /p/，但声带振动。|[b]ag,ta[b]le,jo[b]
-4|t|舌尖抵上齿龈再放开，送气。|[t]ea,be[tt]er,ca[t]
-4|d|口型同 /t/，声带振动。|[d]og,to[d]ay,be[d]
-4|k|舌根抵软腭再放开，送气。|[c]at,[k]ey,ba[ck]
-4|g|口型同 /k/，声带振动。|[g]o,bi[gg]er,ba[g]
-4|f|上齿轻咬下唇，气流从缝里出来。|[f]ood,co[ff]ee,lau[gh]
-4|v|口型同 /f/（上齿咬下唇），声带振动。最常被读成 /w/，一定要咬唇。|[v]ery,se[v]en,ha[v]e
-4|s|舌尖靠近上齿龈，气流嘶嘶地出来。|[s]un,ni[c]e,bu[s]
-4|z|口型同 /s/，声带振动，像蜜蜂嗡嗡。不要读成拼音的 z（“资”）。|[z]oo,ea[s]y,plea[s]e
-4|m|双唇闭合，气流从鼻子出来。词尾的 /m/ 要闭上嘴。|[m]ap,su[mm]er,ti[m]e
-4|n|舌尖抵上齿龈，气流从鼻子出来。|[n]o,di[nn]er,te[n]
-4|h|嘴张开轻轻呼气，比拼音的 h 轻得多。|[h]at,[h]ello,be[h]ind
-4|l|舌尖抵上齿龈，气流从舌头两边出来。词尾的 /l/ 舌尖也要抬起。|[l]ike,he[ll]o,ba[ll]
-4|r|舌尖向上卷但不碰任何地方，嘴唇略圆。不是拼音的 r，也不要读成 /l/。|[r]ed,so[rr]y,[wr]ite
-4|w|嘴唇收圆向前，再迅速滑开，牙齿不碰嘴唇。|[w]e,[wh]at,a[w]ay
-5|θ|舌尖轻轻放在上下齿之间吹气，声带不振动。最常被读成 /s/。|[th]ink,[th]ree,ba[th]
-5|ð|口型同 /θ/（咬舌尖），声带振动。最常被读成 /z/ 或 /d/。|[th]is,mo[th]er,wi[th]
-5|ʃ|嘴唇向前突成圆形，像让人安静的“嘘”。|[sh]e,fi[sh],na[ti]on
-5|ʒ|口型同 /ʃ/，声带振动。|u[s]ually,televi[si]on,plea[s]ure
-5|tʃ|先堵住再放开成 /ʃ/，像“吃”但嘴唇向前突。|[ch]air,tea[ch]er,wa[tch]
-5|dʒ|口型同 /tʃ/，声带振动，像“知”但嘴唇向前突。|[j]ob,a[g]e,bri[dge]
-5|ŋ|舌根抬起抵软腭，气流从鼻子出来，像“昂”的结尾。后面不要多加一个 g 的音。|si[ng],lo[ng],thi[n]k
-5|j|舌面抬高靠近上腭再滑开，像“耶”的开头。|[y]es,[y]ou,[u]se
+1|ɪ|嘴微张，短促放松，像“一”但更短更松，不要拉长。|f[i]sh,p[i]g,sh[i]p,m[i]lk
+1|iː|嘴角向两边像微笑，拉长，像“衣”。|sh[ee]p,tr[ee],k[ey],t[ea]
+1|e|嘴半开，嘴角略向两边，短促。嘴比 /æ/ 小。|b[e]d,[e]gg,br[ea]d,p[e]n
+1|æ|嘴张大、嘴角用力向两边拉，舌尖抵下齿。常被读成 /e/，记得嘴要张得更大。|[a]pple,c[a]t,b[a]g,h[a]t
+2|ɒ|嘴张圆，短促，像很短的“奥”。|d[o]g,b[o]x,cl[o]ck,w[a]tch
+2|ɔː|嘴唇收圆向前，拉长，像“哦”。|d[oor],b[a]ll,h[or]se,f[or]k
+2|ʌ|嘴自然张开，短促，像很短的“啊”。|c[u]p,b[u]s,s[u]n,d[u]ck
+2|ɑː|嘴张大，舌头放低靠后，拉长，像看医生时说“啊”。英式里后面的 r 不卷舌。|c[ar],st[ar],gl[a]ss,h[ear]t
+3|ʊ|嘴唇略圆、放松，短促，比 /uː/ 短而松。|b[oo]k,f[oo]t,w[oo]d,s[u]gar
+3|uː|嘴唇收小收圆向前突，拉长，像“乌”。|sh[oe],m[oo]n,sp[oo]n,fr[ui]t
+3|ə|最放松的音，嘴几乎不动，轻轻带过，只出现在非重读音节。|sof[a],banan[a],tig[er],teach[er]
+3|ɜː|嘴微张、嘴唇放平，舌头居中，拉长，像拉长的“额”。英式不卷舌。|b[ir]d,n[ur]se,sh[ir]t,g[ir]l
+4|eɪ|从 /e/ 滑向 /ɪ/，像“诶”。不要读成单一的 /e/。|c[a]ke,r[ai]n,tr[ai]n,pl[a]ne
+4|aɪ|从“啊”滑向 /ɪ/，像“爱”。|b[i]ke,[i]ce,kn[i]fe,[eye]
+4|ɔɪ|从 /ɔː/ 滑向 /ɪ/，像“哦一”连读。|b[oy],t[oy],c[oi]n,[oi]l
+4|aʊ|从“啊”滑向 /ʊ/，像“奥”。|h[ou]se,c[ow],m[ou]se,cl[ou]d
+5|əʊ|从 /ə/ 滑向 /ʊ/，像“欧”。|b[oa]t,ph[o]ne,n[o]se,sn[ow]
+5|ɪə|从 /ɪ/ 滑向 /ə/，像“一额”连读。|[ear],b[eer],d[eer],b[ear]d
+5|eə|从 /e/ 滑向 /ə/，像“诶额”连读。|ch[air],h[air],b[ear],p[ear]
+5|ʊə|从 /ʊ/ 滑向 /ə/，像“乌额”连读。现代英式里很多词改读 /ɔː/。|t[our]ist,p[ure],c[ure],sec[ure]
+6|p|双唇闭紧再突然放开，送气，声带不振动。|[p]en,[p]ig,a[pp]le,ma[p]
+6|b|口型同 /p/，但声带振动。|[b]ag,[b]ed,[b]all,ta[b]le
+6|t|舌尖抵上齿龈再放开，送气。|[t]ea,[t]ree,[t]able,ca[t]
+6|d|口型同 /t/，声带振动。|[d]og,[d]oor,[d]uck,be[d]
+6|k|舌根抵软腭再放开，送气。|[c]at,[k]ey,[c]ake,clo[ck]
+6|g|口型同 /k/，声带振动。|[g]oat,[g]lass,e[gg],ba[g]
+7|f|上齿轻咬下唇，气流从缝里出来。|[f]ish,[f]ork,[f]oot,kni[f]e
+7|v|口型同 /f/（上齿咬下唇），声带振动。最常被读成 /w/，一定要咬唇。|[v]an,[v]iolin,se[v]en,fi[v]e
+7|s|舌尖靠近上齿龈，气流嘶嘶地出来。|[s]un,[s]ock,bu[s],hou[s]e
+7|z|口型同 /s/，声带振动，像蜜蜂嗡嗡。不要读成拼音的 z（“资”）。|[z]oo,[z]ebra,ro[s]e,no[s]e
+7|h|嘴张开轻轻呼气，比拼音的 h 轻得多。|[h]at,[h]ouse,[h]orse,[h]and
+8|m|双唇闭合，气流从鼻子出来。词尾的 /m/ 要闭上嘴。|[m]oon,[m]ilk,[m]ap,ha[mm]er
+8|n|舌尖抵上齿龈，气流从鼻子出来。|[n]ose,[n]urse,su[n],spoo[n]
+8|ŋ|舌根抬起抵软腭，气流从鼻子出来，像“昂”的结尾。后面不要多加一个 g 的音。|ri[ng],ki[ng],wi[ng],si[ng]
+8|l|舌尖抵上齿龈，气流从舌头两边出来。词尾的 /l/ 舌尖也要抬起。|[l]emon,[l]amp,[l]eaf,ba[ll]
+8|r|舌尖向上卷但不碰任何地方，嘴唇略圆。不是拼音的 r，也不要读成 /l/。|[r]ain,[r]ing,[r]abbit,t[r]ee
+9|w|嘴唇收圆向前，再迅速滑开，牙齿不碰嘴唇。|[w]atch,[w]indow,[w]ater,[wh]eel
+9|j|舌面抬高靠近上腭再滑开，像“耶”的开头。|[y]oghurt,[y]acht,[y]ellow,[u]niform
+9|θ|舌尖轻轻放在上下齿之间吹气，声带不振动。最常被读成 /s/。|[th]umb,[th]ree,too[th],ba[th]
+9|ð|口型同 /θ/（咬舌尖），声带振动。最常被读成 /z/ 或 /d/。|mo[th]er,fa[th]er,bro[th]er,fea[th]er
+10|ʃ|嘴唇向前突成圆形，像让人安静的“嘘”。|[sh]ip,[sh]oe,fi[sh],bru[sh]
+10|ʒ|口型同 /ʃ/，声带振动。|televi[si]on,trea[s]ure,u[s]ually,plea[s]ure
+10|tʃ|先堵住再放开成 /ʃ/，像“吃”但嘴唇向前突。|[ch]air,[ch]eese,wa[tch],[ch]icken
+10|dʒ|口型同 /tʃ/，声带振动，像“知”但嘴唇向前突。|[j]am,[j]eans,oran[ge],bri[dge]
 </script>
 <script type="text/plain" id="ipap">
 ɪ|iː|短而松 对 长而紧|ship,ʃɪp,sheep,ʃiːp;sit,sɪt,seat,siːt;live,lɪv,leave,liːv
@@ -612,7 +617,11 @@ const TALK=document.getElementById('talk').textContent.trim().split('\n').map(l=
 const TALK_N=5;
 const IPA=document.getElementById('ipa').textContent.trim().split('\n').map(l=>{const a=l.split('|');return{L:+a[0],s:a[1],tip:a[2],w:a[3].split(',')}});
 const IPAP=document.getElementById('ipap').textContent.trim().split('\n').map(l=>{const a=l.split('|');return{a:a[0],b:a[1],tip:a[2],p:a[3].split(';').map(x=>x.split(','))}});
-const ILESS=[[1,'短元音','嘴型放松、发音短'],[2,'长元音','发音要拉长'],[3,'双元音','从一个音滑到另一个音'],[4,'辅音 · 和拼音相近','大部分和拼音差不多'],[5,'辅音 · 中文里没有','最容易读错的 8 个']];
+const ILESS=[[1,'ɪ iː e æ','短元音和长元音的对比'],[2,'ɒ ɔː ʌ ɑː','“奥”和“啊”的长短'],[3,'ʊ uː ə ɜː','“乌”和“额”的长短'],[4,'eɪ aɪ ɔɪ aʊ','双元音（上）'],[5,'əʊ ɪə eə ʊə','双元音（下）'],[6,'p b t d k g','爆破音，三对清浊'],[7,'f v s z h','摩擦音'],[8,'m n ŋ l r','鼻音和舌音'],[9,'w j θ ð','滑音和咬舌音'],[10,'ʃ ʒ tʃ dʒ','嘴唇前突的四个音']];
+const IWIMG={"fish":"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Balantiocheilos_melanopterus_-_Karlsruhe_Zoo_02_%28cropped%29.jpg/330px-Balantiocheilos_melanopterus_-_Karlsruhe_Zoo_02_%28cropped%29.jpg","pig":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Pig_farm_Vampula_1.jpg/330px-Pig_farm_Vampula_1.jpg","ship":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Containerterminal_Altenwerder_%28Hamburg-Altenwerder%29.Iris_Bolten.4.phb.ajb.jpg/330px-Containerterminal_Altenwerder_%28Hamburg-Altenwerder%29.Iris_Bolten.4.phb.ajb.jpg","milk":"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Glass_of_Milk_%2833657535532%29.jpg/330px-Glass_of_Milk_%2833657535532%29.jpg","sheep":"https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Flock_of_sheep.jpg/330px-Flock_of_sheep.jpg","tree":"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Usamljeni_jasen_-_panoramio_%28cropped%29.jpg/330px-Usamljeni_jasen_-_panoramio_%28cropped%29.jpg","key":"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Solex_99_30_padlock_with_keys_%28DSCF2659%29.jpg/330px-Solex_99_30_padlock_with_keys_%28DSCF2659%29.jpg","tea":"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Longjing_tea_steeping_in_gaiwan.jpg/330px-Longjing_tea_steeping_in_gaiwan.jpg","bed":"https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/2008-04-12_Freilichtmuseum_Detmold_%2811%29.jpg/330px-2008-04-12_Freilichtmuseum_Detmold_%2811%29.jpg","egg":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Huevo_frito.jpg/330px-Huevo_frito.jpg","bread":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Korb_mit_Br%C3%B6tchen.JPG/330px-Korb_mit_Br%C3%B6tchen.JPG","pen":"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Carandache_Ecridor.jpg/330px-Carandache_Ecridor.jpg","apple":"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Pink_lady_and_cross_section.jpg/330px-Pink_lady_and_cross_section.jpg","cat":"https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Juvenile_Ragdoll.jpg/330px-Juvenile_Ragdoll.jpg","bag":"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Mi%27kmaq_porcupine_quill_purse_%2840412695490%29.jpg/330px-Mi%27kmaq_porcupine_quill_purse_%2840412695490%29.jpg","hat":"https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/A_fedora_hat%2C_made_by_Borsalino.jpg/330px-A_fedora_hat%2C_made_by_Borsalino.jpg","dog":"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Huskiesatrest.jpg/330px-Huskiesatrest.jpg","box":"https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Box.agr.jpg/330px-Box.agr.jpg","clock":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Pendulum_clock_by_Jacob_Kock%2C_antique_furniture_photography%2C_IMG_0931_edit.jpg/330px-Pendulum_clock_by_Jacob_Kock%2C_antique_furniture_photography%2C_IMG_0931_edit.jpg","watch":"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Rolex_Oyster_Perpetual_with_a_%22Jubliee%22_dial.jpg/330px-Rolex_Oyster_Perpetual_with_a_%22Jubliee%22_dial.jpg","door":"https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/L-door.png/330px-L-door.png","ball":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Many_balls.jpg/330px-Many_balls.jpg","horse":"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Nokota_Horses_cropped.jpg/330px-Nokota_Horses_cropped.jpg","fork":"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Assorted_forks.jpg/330px-Assorted_forks.jpg","cup":"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Five_Piece_Tea_Service_with_Chrysanthemum_Design_LACMA_M.2006.132.10a-i.jpg/330px-Five_Piece_Tea_Service_with_Chrysanthemum_Design_LACMA_M.2006.132.10a-i.jpg","bus":"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/LTZ1328-19-20241030-160332.jpg/330px-LTZ1328-19-20241030-160332.jpg","sun":"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/The_Sun_in_white_light.jpg/330px-The_Sun_in_white_light.jpg","duck":"https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Bucephala-albeola-010.jpg/330px-Bucephala-albeola-010.jpg","car":"https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/White_Toyota_Corolla_sedan_in_San_Jose_California_dllu.jpg/330px-White_Toyota_Corolla_sedan_in_San_Jose_California_dllu.jpg","star":"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/The_Sun_in_white_light.jpg/330px-The_Sun_in_white_light.jpg","glass":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Drinkware.jpg/330px-Drinkware.jpg","heart":"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Heart_anterior_exterior_view.png/330px-Heart_anterior_exterior_view.png","book":"https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg/330px-Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg","foot":"https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Foot_on_white_background.jpg/330px-Foot_on_white_background.jpg","wood":"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/16_wood_samples.jpg/330px-16_wood_samples.jpg","sugar":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Sucre_blanc_cassonade_complet_rapadura.jpg/330px-Sucre_blanc_cassonade_complet_rapadura.jpg","shoe":"https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Skor_fr%C3%A5n_1700-_till_1960-talet_-_Nordiska_Museet_-_NMA.0056302.jpg/330px-Skor_fr%C3%A5n_1700-_till_1960-talet_-_Nordiska_Museet_-_NMA.0056302.jpg","moon":"https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/330px-FullMoon2010.jpg","spoon":"https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Soup_Spoon.jpg/330px-Soup_Spoon.jpg","fruit":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Fruit_Platter-_Seasonal_Fruits.jpg/330px-Fruit_Platter-_Seasonal_Fruits.jpg","sofa":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/2009-05-16_Main_office_lobby_at_Hampton_Forest_Apartments.jpg/330px-2009-05-16_Main_office_lobby_at_Hampton_Forest_Apartments.jpg","banana":"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Bananavarieties.jpg/330px-Bananavarieties.jpg","tiger":"https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg/330px-Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg","teacher":"https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/A_public_high_school_teacher_in_a_classroom_in_the_United_States_08.jpg/330px-A_public_high_school_teacher_in_a_classroom_in_the_United_States_08.jpg","bird":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Kleiber_Flug.jpg/330px-Kleiber_Flug.jpg","nurse":"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Nurse_checks_blood_pressure.jpg/330px-Nurse_checks_blood_pressure.jpg","shirt":"https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Charvet_shirt.jpg/330px-Charvet_shirt.jpg","girl":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Young_girl_smiling_in_sunshine_%282%29.jpg/330px-Young_girl_smiling_in_sunshine_%282%29.jpg","cake":"https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Pound_layer_cake.jpg/330px-Pound_layer_cake.jpg","rain":"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/M0354_000727-005_1.jpg/330px-M0354_000727-005_1.jpg","train":"https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/%D0%9F%D0%BE%D0%B5%D0%B7%D0%B4_%D0%BD%D0%B0_%D1%84%D0%BE%D0%BD%D0%B5_%D0%B3%D0%BE%D1%80%D1%8B_%D0%A8%D0%B0%D1%82%D1%80%D0%B8%D1%89%D0%B5._%D0%92%D0%BE%D1%80%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%B0%D1%8F_%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C.jpg/330px-%D0%9F%D0%BE%D0%B5%D0%B7%D0%B4_%D0%BD%D0%B0_%D1%84%D0%BE%D0%BD%D0%B5_%D0%B3%D0%BE%D1%80%D1%8B_%D0%A8%D0%B0%D1%82%D1%80%D0%B8%D1%89%D0%B5._%D0%92%D0%BE%D1%80%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%B0%D1%8F_%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C.jpg","plane":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/United_Airlines_Boeing_777-200_Meulemans.jpg/330px-United_Airlines_Boeing_777-200_Meulemans.jpg","bike":"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Left_side_of_Flying_Pigeon.jpg/330px-Left_side_of_Flying_Pigeon.jpg","ice":"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Ice_Block%2C_Canal_Park%2C_Duluth_%2832752478892%29.jpg/330px-Ice_Block%2C_Canal_Park%2C_Duluth_%2832752478892%29.jpg","knife":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Damascus_Bowie.jpg/330px-Damascus_Bowie.jpg","eye":"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Human_eye_with_blood_vessels.jpg/330px-Human_eye_with_blood_vessels.jpg","boy":"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Smiling_little_boy_of_Laos.jpg/330px-Smiling_little_boy_of_Laos.jpg","toy":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Toy_car_%28AM_1996.165.95%29.jpg/330px-Toy_car_%28AM_1996.165.95%29.jpg","coin":"https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Kiloware.JPG/330px-Kiloware.JPG","oil":"https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Oliven_V1.jpg/330px-Oliven_V1.jpg","house":"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Katsura_Imperial_Villa_in_Spring.jpg/330px-Katsura_Imperial_Villa_in_Spring.jpg","cow":"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Cow_%28Fleckvieh_breed%29_Oeschinensee_Slaunger_2009-07-07.jpg/330px-Cow_%28Fleckvieh_breed%29_Oeschinensee_Slaunger_2009-07-07.jpg","mouse":"https://upload.wikimedia.org/wikipedia/commons/8/8f/Mouse_white_background.jpg","cloud":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/GoldenMedows.jpg/330px-GoldenMedows.jpg","boat":"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Motorboat_at_Kankaria_lake.JPG/330px-Motorboat_at_Kankaria_lake.JPG","phone":"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Wikipedia_homepage_on_a_large_Android_phone%2C_2015-04-16.jpg/330px-Wikipedia_homepage_on_a_large_Android_phone%2C_2015-04-16.jpg","nose":"https://upload.wikimedia.org/wikipedia/commons/d/d8/Fort_Ross_Elena_wearing_Traditional_Russian_Costume_%28cropped%29.jpg","snow":"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/CargoNet_Di_12_Euro_4000_L%C3%B8nsdal_-_Bolna.jpg/330px-CargoNet_Di_12_Euro_4000_L%C3%B8nsdal_-_Bolna.jpg","ear":"https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Human_right_ear_%28cropped%29.jpg/330px-Human_right_ear_%28cropped%29.jpg","beer":"https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Jeju_beer_09_%28cropped%29.jpg/330px-Jeju_beer_09_%28cropped%29.jpg","deer":"https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/White-tailed_deer.jpg/330px-White-tailed_deer.jpg","beard":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Photography-wallpaper-facial-hair-man-beard-chin-moustache-human-elder-portrait-1453095.jpg/330px-Photography-wallpaper-facial-hair-man-beard-chin-moustache-human-elder-portrait-1453095.jpg","chair":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Set_of_fourteen_side_chairs_MET_DP110780.jpg/330px-Set_of_fourteen_side_chairs_MET_DP110780.jpg","hair":"https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Pierre_Auguste_Renoir_-_Portrait_de_Julie_Manet.jpg/330px-Pierre_Auguste_Renoir_-_Portrait_de_Julie_Manet.jpg","bear":"https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Ours_brun_parcanimalierpyrenees_1.jpg/330px-Ours_brun_parcanimalierpyrenees_1.jpg","pear":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Pears.jpg/330px-Pears.jpg","tourist":"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/New_york_times_square-terabass.jpg/330px-New_york_times_square-terabass.jpg","map":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/World_Map_1689.JPG/330px-World_Map_1689.JPG","table":"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Beautiful_Baroque_gilded_table_from_the_Cinquantenaire_Museum_%28Bruxelles%2C_Belgium%29.jpg/330px-Beautiful_Baroque_gilded_table_from_the_Cinquantenaire_Museum_%28Bruxelles%2C_Belgium%29.jpg","goat":"https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Hausziege_04.jpg/330px-Hausziege_04.jpg","van":"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/2018_Ford_Transit_Custom_300_Base_2.0_facelift.jpg/330px-2018_Ford_Transit_Custom_300_Base_2.0_facelift.jpg","violin":"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Violin_VL100.png/330px-Violin_VL100.png","sock":"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/HandKnittedWhiteLaceSock.jpg/330px-HandKnittedWhiteLaceSock.jpg","zoo":"https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Columbus_Zoo_-_51284624854.jpg/330px-Columbus_Zoo_-_51284624854.jpg","zebra":"https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Plains_Zebra_Equus_quagga_cropped.jpg/330px-Plains_Zebra_Equus_quagga_cropped.jpg","rose":"https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Rosa_rubiginosa_1.jpg/330px-Rosa_rubiginosa_1.jpg","hand":"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Hand%2C_fingers_-_back.jpg/330px-Hand%2C_fingers_-_back.jpg","hammer":"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/IKEA_hammer_%28cropped%29.jpg/330px-IKEA_hammer_%28cropped%29.jpg","ring":"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Roman_-_Crouching_Venus_-_Walters_421007_-_Three_Quarter.jpg/330px-Roman_-_Crouching_Venus_-_Walters_421007_-_Three_Quarter.jpg","king":"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Chess_piece_-_White_king.jpg/330px-Chess_piece_-_White_king.jpg","wing":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Domestic_Pigeon_Flock.jpg/330px-Domestic_Pigeon_Flock.jpg","lemon":"https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/P1030323.JPG/330px-P1030323.JPG","lamp":"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Wide_array_of_lamps.jpg/330px-Wide_array_of_lamps.jpg","leaf":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Lisc_lipy.jpg/330px-Lisc_lipy.jpg","rabbit":"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Oryctolagus_cuniculus_Rcdo.jpg/330px-Oryctolagus_cuniculus_Rcdo.jpg","window":"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Atua_Kosua_shrine4.jpg/330px-Atua_Kosua_shrine4.jpg","water":"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Clean_water_for_a_village_in_West_Lombok_%2810686572086%29.jpg/330px-Clean_water_for_a_village_in_West_Lombok_%2810686572086%29.jpg","wheel":"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Landesmuseum_W%C3%BCrttemberg_Kelten_011.4.jpg/330px-Landesmuseum_W%C3%BCrttemberg_Kelten_011.4.jpg","yoghurt":"https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Joghurt.jpg/330px-Joghurt.jpg","yacht":"https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Bavaria_Cruiser_45.jpg/330px-Bavaria_Cruiser_45.jpg","yellow":"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Cornwall_Daffodils.jpg/330px-Cornwall_Daffodils.jpg","uniform":"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Students_of_Nan_Hua_High_School%2C_Singapore%2C_in_the_school_hall_-_20060127.jpg/330px-Students_of_Nan_Hua_High_School%2C_Singapore%2C_in_the_school_hall_-_20060127.jpg","thumb":"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Liam_Thumb.jpg/330px-Liam_Thumb.jpg","tooth":"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/06-10-06smile.jpg/330px-06-10-06smile.jpg","bath":"https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Clawfoot_bathtub.jpg/330px-Clawfoot_bathtub.jpg","mother":"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Portrait_of_a_woman_holding_a_baby_%28I0024828%29.jpg/330px-Portrait_of_a_woman_holding_a_baby_%28I0024828%29.jpg","father":"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Father%27s_love_%28cropped%29.jpg/330px-Father%27s_love_%28cropped%29.jpg","brother":"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Me_and_my_other_brother.jpg/330px-Me_and_my_other_brother.jpg","feather":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Peacock_Plumage.jpg/330px-Peacock_Plumage.jpg","brush":"https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/BurglaryIsrael2.jpg/330px-BurglaryIsrael2.jpg","television":"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Cptvdisplay.jpg/330px-Cptvdisplay.jpg","treasure":"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Tesoro_de_Villena.jpg/330px-Tesoro_de_Villena.jpg","cheese":"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Cheese_platter.jpg/330px-Cheese_platter.jpg","chicken":"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Male_and_female_chicken_sitting_together.jpg/330px-Male_and_female_chicken_sitting_together.jpg","jam":"https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Fruits_jam_variants.jpg/330px-Fruits_jam_variants.jpg","jeans":"https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Jeans.jpg/330px-Jeans.jpg","orange":"https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Oranges_-_whole-halved-segment.jpg/330px-Oranges_-_whole-halved-segment.jpg","bridge":"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Bridge_Alcantara.JPG/330px-Bridge_Alcantara.JPG"};
+function autoIw(){}
+const ipaTiles=x=>'<div class="iwts">'+x.w.map(w=>{const pw=plainW(w),u=IWIMG[pw];
+  return '<button class="iwt" data-act="speak" data-t="'+esc(pw)+'"><span class="iwp" data-iw="'+esc(pw)+'"'+(u?'':' hidden')+'>'+(u?'<img src="'+esc(u)+'" alt="">':'')+'</span><span>🔊 '+markW(w)+'</span></button>'}).join('')+'</div>';
 const IPAS={};IPA.forEach(x=>{IPAS[x.s]=x});
 const IALIAS={'ɡ':'g','i':'iː','u':'uː','ɛ':'e','oʊ':'əʊ','ɚ':'ə','ɝ':'ɜː','ɹ':'r','ɐ':'ʌ'};
 const plainW=w=>w.replace(/[\[\]]/g,'');
@@ -634,21 +643,21 @@ function ipaHTML(str,k){
 function ipaPopHTML(k){
   const pp=ui.ipaPop;if(!pp||pp.k!==k||!IPAS[pp.s])return'';
   const x=IPAS[pp.s];
-  return '<div class="chipbox"><div class="row"><b style="font-size:20px">/'+esc(x.s)+'/</b><span class="small muted">'+esc(ILESS[x.L-1][1])+'</span></div><p class="small">'+esc(x.tip)+'</p><div class="row">'+ipaWords(x)+'</div></div>';
+  return '<div class="chipbox"><div class="row"><b style="font-size:20px">/'+esc(x.s)+'/</b><span class="small muted">音标第 '+x.L+' 天</span></div><p class="small">'+esc(x.tip)+'</p><div class="row">'+ipaWords(x)+'</div></div>';
 }
 function ipaMeta(){const m=S.meta;if(!m.ipa)m.ipa={seen:{},bad:{}};if(!m.ipa.seen)m.ipa.seen={};if(!m.ipa.bad)m.ipa.bad={};return m.ipa}
 function ipaMakeQ(key){
   const pick=a=>a[Math.floor(Math.random()*a.length)];
   if(key.indexOf('s:')===0){
-    const x=IPAS[key.slice(2)],vow=x.L<=3;
-    const pool=shuffle(IPA.filter(y=>(y.L<=3)===vow&&y.s!==x.s)).slice(0,3).map(y=>y.s);
+    const x=IPAS[key.slice(2)],vow=x.L<=5;
+    const pool=shuffle(IPA.filter(y=>(y.L<=5)===vow&&y.s!==x.s)).slice(0,3).map(y=>y.s);
     return{key:key,type:'sym',word:pick(x.w),ans:x.s,opts:shuffle([x.s].concat(pool)),tip:x.tip};
   }
   const P=IPAP[+key.slice(2)],row=pick(P.p),first=Math.random()<.5,type=Math.random()<.5?'read':'hear';
   return{key:key,type:type,ans:first?row[0]:row[2],ipa:first?row[1]:row[3],opts:[row[0],row[2]],row:row,tip:'/'+P.a+'/ 和 /'+P.b+'/：'+P.tip};
 }
 function ipaStartQuiz(){
-  const im=ipaMeta(),seen=IPA.filter(x=>im.seen[x.L]),src=seen.length?seen:IPA;
+  const im=ipaMeta(),seen=IPA.filter(x=>im.seen['d'+x.L]),src=seen.length?seen:IPA;
   const bad=shuffle(Object.keys(im.bad).filter(k=>k.indexOf('s:')===0?IPAS[k.slice(2)]:IPAP[+k.slice(2)]));
   const fresh=shuffle(src.map(x=>'s:'+x.s).concat(IPAP.map((x,i)=>'p:'+i))).filter(k=>bad.indexOf(k)<0);
   const keys=bad.concat(fresh).slice(0,10);
@@ -1197,17 +1206,17 @@ V.ipa=function(){
   if(!v){
     const nb=Object.keys(im.bad).length;
     return '<div class="row spread"><h2>音标 · 英式发音</h2></div>'+
-      '<p class="small muted" style="margin:0">44 个音分成 5 课，建议一天一课。先听例词、看嘴型说明，再去“容易混的音”里对比，最后测一测（只做选择，不用打字）。</p>'+
-      '<div class="ccats">'+ILESS.map(l=>'<button class="ccat" data-act="ipaLesson" data-l="'+l[0]+'"><span class="t">第 '+l[0]+' 课 · '+l[1]+'</span><span class="small">'+IPA.filter(x=>x.L===l[0]).map(x=>esc(x.s)).join(' ')+'</span><span class="small muted">'+l[2]+(im.seen[l[0]]?' · 已学':'')+'</span></button>').join('')+
+      '<p class="small muted" style="margin:0">44 个音分成 10 天，每天 4 到 6 个。先看图听例词、看嘴型说明，再去“容易混的音”里对比，最后测一测（只做选择，不用打字）。</p>'+
+      '<div class="ccats">'+ILESS.map(l=>'<button class="ccat" data-act="ipaLesson" data-l="'+l[0]+'"><span class="t">第 '+l[0]+' 天</span><span style="font-size:17px">'+esc(l[1])+'</span><span class="small muted">'+l[2]+(im.seen['d'+l[0]]?' · 已学':'')+'</span></button>').join('')+
       '<button class="ccat" data-act="ipaPairs"><span class="t">容易混的音</span><span class="small">ship / sheep，think / sink …</span><span class="small muted">'+IPAP.length+' 组对比，点一下听一个</span></button></div>'+
       '<div class="row"><button class="btn primary" data-act="ipaQuiz">测一测（10 题）</button>'+(nb?'<span class="small muted">有 '+nb+' 个音上次答错了，会先考这些</span>':'')+'</div>';
   }
   if(v.t==='L'){
     const list=IPA.filter(x=>x.L===v.L),x=IPAS[v.s]||list[0],i=list.indexOf(x),L=ILESS[v.L-1];
-    return '<div class="row spread"><h2>第 '+L[0]+' 课 · '+L[1]+'</h2>'+back+'</div>'+
+    return '<div class="row spread"><h2>第 '+L[0]+' 天 · '+esc(L[2])+'</h2>'+back+'</div>'+
       '<div class="chips">'+list.map(y=>'<button class="chip" style="font-size:17px" data-act="ipaSound" data-s="'+esc(y.s)+'" aria-current="'+(y===x)+'">'+esc(y.s)+'</button>').join('')+'</div>'+
       '<section class="panel"><div class="row"><span class="elbig">'+esc(x.s)+'</span><p style="flex:1 1 220px;margin:0">'+esc(x.tip)+'</p></div>'+
-      '<p class="small muted" style="margin:0">点例词听发音，注意标黄的字母：</p><div class="row">'+ipaWords(x)+'</div>'+
+      '<p class="small muted" style="margin:0">点图片或单词听发音，注意标黄的字母：</p>'+ipaTiles(x)+
       '<div class="row"><button class="btn" data-act="ipaSound" data-s="'+esc((list[i-1]||x).s)+'"'+(i?'':' disabled')+'>上一个</button>'+
       (i<list.length-1?'<button class="btn primary" data-act="ipaSound" data-s="'+esc(list[i+1].s)+'">下一个</button>':'<button class="btn primary" data-act="ipaPairs">学完了，去对比容易混的音</button>')+'</div></section>';
   }
@@ -1500,6 +1509,7 @@ function render(){
   $('#view').innerHTML=V[ui.tab]();
   renderSync();
   autoImages();
+  autoIw();
   autoRel();
   autoDefs();
   const f=$('#view [data-focus]');
@@ -1508,7 +1518,7 @@ function render(){
 const A={
   tab(d){ui.editRel=null;ui.chip=null;ui.ipaPop=null;ui.tab=d.tab;ui.err='';ui.open=null;ui.del=null;render()},
   ipaHome(){ui.iv=null;render()},
-  ipaLesson(d){const L=+d.l,im=ipaMeta();ui.iv={t:'L',L:L,s:IPA.find(x=>x.L===L).s};if(!im.seen[L]){im.seen[L]=1;persist('meta')}render()},
+  ipaLesson(d){const L=+d.l,im=ipaMeta();ui.iv={t:'L',L:L,s:IPA.find(x=>x.L===L).s};if(!im.seen['d'+L]){im.seen['d'+L]=1;persist('meta')}render()},
   ipaSound(d){if(ui.iv&&ui.iv.t==='L'){ui.iv.s=d.s;render()}},
   ipaPairs(){ui.iv={t:'P'};render();window.scrollTo(0,0)},
   ipaQuiz(){ipaStartQuiz();render();const q=ui.iv.cur;if(q.type==='hear')speak(q.ans)},
