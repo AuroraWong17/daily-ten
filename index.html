@@ -720,7 +720,10 @@ async function boot(){
 
 /* ---------- words ---------- */
 const all=()=>Object.keys(S.words);
-const dueList=()=>{const t=today();return all().filter(k=>S.words[k].due<=t).sort((a,b)=>S.words[a].due<S.words[b].due?-1:1)};
+const NOTEST=['pt','equip','test','echem'];
+const noTest=w=>w&&w.src==='chem'&&NOTEST.indexOf(w.sub)>=0;
+const mcOnly=w=>w&&w.src==='chem';
+const dueList=()=>{const t=today();return all().filter(k=>S.words[k].due<=t&&!noTest(S.words[k])).sort((a,b)=>S.words[a].due<S.words[b].due?-1:1)};
 const todayList=()=>(S.meta.days[today()]||[]).filter(k=>S.words[k]);
 function normalize(arr){
   if(!Array.isArray(arr))return[];
@@ -918,6 +921,7 @@ function hl(sentence,w){
 /* ---------- views ---------- */
 function statusOf(w){
   if(w.box>=5)return['done','已掌握'];
+  if(noTest(w))return['new','只查看'];
   if(w.due<=today())return['due',w.lapses?'待重测':'待复习'];
   return['',w.box?'学习中':'新词'];
 }
@@ -1081,11 +1085,11 @@ V.chem=function(){
   if(!ui.ready)return '<div class="row"><span class="spin"></span><span class="muted">正在读取你的学习记录…</span></div>';
   const cat=ui.ccat;
   if(!cat)return '<div class="row spread"><h2>化学专栏</h2></div>'+
-    '<p class="small muted" style="margin:0">选一个分类。点开过的词会自动进入“复习”和“打字练习”。</p>'+
+    '<p class="small muted" style="margin:0">选一个分类。元素周期表、实验器材、测试与表征、电化学只用来查看，不会出现在测试里；其余分类点开过的词会进入“复习”，只考选意思，不用打字。</p>'+
     '<div class="ccats">'+CCATS.map(c=>{
       const tot=c[0]==='pt'?ELS.length:CHEM.filter(x=>x.sub===c[0]).length;
       const got=c[0]==='pt'?ELS.filter(e=>{const w=S.words[slug(e.name)];return w&&w.src==='chem'}).length:CHEM.filter(x=>x.sub===c[0]&&S.words[slug(x.w)]).length;
-      return '<button class="ccat" data-act="ccat" data-c="'+c[0]+'"><span class="e" aria-hidden="true">'+c[2]+'</span><span class="t">'+c[1]+'</span><span class="small muted">已学 '+got+' / '+tot+'</span></button>'}).join('')+'</div>';
+      return '<button class="ccat" data-act="ccat" data-c="'+c[0]+'"><span class="e" aria-hidden="true">'+c[2]+'</span><span class="t">'+c[1]+'</span><span class="small muted">'+(NOTEST.indexOf(c[0])>=0?'已看 ':'已学 ')+got+' / '+tot+(NOTEST.indexOf(c[0])>=0?' · 不测试':' · 只考意思')+'</span></button>'}).join('')+'</div>';
   const C=CCATS.find(c=>c[0]===cat),head='<div class="row spread"><h2>'+C[2]+' '+C[1]+'</h2><button class="btn ghost" data-act="ccat" data-c="">← 所有分类</button></div>';
   if(cat==='pt'){
     const sel=ui.cel?ELS[ui.cel-1]:null,k=sel?slug(sel.name):'',have=sel&&S.words[k]&&S.words[k].src==='chem';
@@ -1095,7 +1099,7 @@ V.chem=function(){
       (sel?(have?cardHTML(k,'<button class="btn" data-act="pracWord" data-k="'+k+'">打字练习</button>'):
         '<section class="panel"><div class="row"><span class="elbig">'+sel.sym+'</span><div class="stack" style="gap:2px"><h2 class="word" style="font-size:28px">'+esc(sel.name)+' <button class="speak" data-act="speak" data-t="'+esc(sel.name)+'" aria-label="朗读">🔊</button></h2>'+
         '<p class="zh" style="margin:0">'+esc(sel.zh)+'</p><p class="small muted" style="margin:0">原子序数 '+sel.z+'</p></div></div>'+
-        '<div class="row"><button class="btn primary" data-act="elAdd" data-z="'+sel.z+'">加入复习</button><span class="small muted">加入后会有图片、例句，并进入复习和打字练习</span></div></section>'):'');
+        '<div class="row"><button class="btn primary" data-act="elAdd" data-z="'+sel.z+'">看图片和例句</button><span class="small muted">元素不会出现在测试里</span></div></section>'):'');
   }
   const list=CHEM.filter(x=>x.sub===cat),cur=ui.cterm&&S.words[ui.cterm]&&list.some(x=>slug(x.w)===ui.cterm)?ui.cterm:'';
   return head+'<p class="small muted" style="margin:0">点一个词打开卡片。灰色的是还没学过的。</p>'+
@@ -1184,7 +1188,7 @@ function listHTML(keys){
   }).join('')+'</div>';
 }
 V.lib=function(){
-  const t=today(),F={all:['全部',()=>true],push:['每日推送',w=>w.src!=='mine'&&w.src!=='talk'&&w.src!=='chem'],talk:['生活口语',w=>w.src==='talk'],chem:['化学',w=>w.src==='chem'],mine:['我输入的',w=>w.src==='mine'],due:['待复习',w=>w.due<=t],done:['已掌握',w=>w.box>=5]};
+  const t=today(),F={all:['全部',()=>true],push:['每日推送',w=>w.src!=='mine'&&w.src!=='talk'&&w.src!=='chem'],talk:['生活口语',w=>w.src==='talk'],chem:['化学',w=>w.src==='chem'],mine:['我输入的',w=>w.src==='mine'],due:['待复习',w=>w.due<=t&&!noTest(w)],done:['已掌握',w=>w.box>=5]};
   const keys=all().filter(k=>F[ui.lib][1](S.words[k])).sort((a,b)=>S.words[a].added<S.words[b].added?1:(S.words[a].added>S.words[b].added?-1:0));
   return '<div class="chips">'+Object.keys(F).map(f=>'<button class="chip" data-act="lib" data-f="'+f+'" aria-current="'+(f===ui.lib)+'">'+F[f][0]+' '+all().filter(k=>F[f][1](S.words[k])).length+'</button>').join('')+'</div>'+
     (keys.length?listHTML(keys):'<p class="muted">这里还没有词。</p>');
@@ -1193,7 +1197,7 @@ V.lib=function(){
 /* review */
 function makeQ(k,retry){
   const w=S.words[k];
-  let type=retry?'spell':(w.box===0?'mc':(Math.random()<.5?'cloze':'spell'));
+  let type=mcOnly(w)?'mc':retry?'spell':(w.box===0?'mc':(Math.random()<.5?'cloze':'spell'));
   const q={k:k,type:type,done:null};
   if(type==='cloze'){
     const re=wordRe(w.w),c=shuffle(w.ex).find(e=>re.test(e.en));
@@ -1207,7 +1211,7 @@ function makeQ(k,retry){
 }
 function startReview(free){
   let q=dueList().slice(0,20);
-  if(free)q=shuffle(all()).slice(0,10);
+  if(free)q=shuffle(all().filter(k=>!noTest(S.words[k]))).slice(0,10);
   if(!q.length)return;
   ui.rev={q:q,n0:q.length,i:0,retried:[],right:0,missed:[],cur:null};
   ui.rev.cur=makeQ(q[0],false);render();
