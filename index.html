@@ -86,6 +86,17 @@ textarea{width:100%;resize:vertical;min-height:72px}
 .rel .more{font-weight:600}
 .rel .rl{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
 .rel input{width:100%}
+.chip.dim{opacity:.55}
+.ccats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.ccat{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;padding:12px 14px;cursor:pointer;font:inherit}
+.ccat .e{font-size:26px;line-height:1.2}.ccat .t{font-weight:600;font-size:16px}
+.ptwrap{overflow-x:auto;padding-bottom:4px}
+.ptable{display:grid;grid-template-columns:repeat(18,minmax(32px,1fr));grid-auto-rows:38px;gap:2px;min-width:612px}
+.el{border:1px solid var(--line);background:none;color:var(--ink);border-radius:5px;padding:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.05;font:inherit}
+.el i{font-style:normal;font-size:8px;color:var(--muted)}.el b{font-size:13px}
+.el.nm{background:color-mix(in srgb,var(--accent) 14%,transparent)}.el.ng{background:color-mix(in srgb,var(--mark) 22%,transparent)}.el.f{border-style:dashed}
+.el.got{border-color:var(--accent)}.el[aria-pressed="true"]{outline:2px solid var(--accent);outline-offset:1px}
+.elbig{display:grid;place-items:center;width:84px;height:84px;border-radius:14px;background:var(--sunk);font-size:38px;font-weight:700}
 .chip[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)}
 .chipbox{background:var(--sunk);border-radius:8px;padding:8px 12px;display:flex;flex-direction:column;gap:4px}
 .chipbox p{margin:0}
@@ -146,6 +157,94 @@ mark{background:var(--mark);color:var(--mark-ink);padding:0 .15em;border-radius:
   <main id="view"><p class="muted">加载中…</p></main>
 </div>
 
+<script type="text/plain" id="chem">
+equip|beaker|||n.|烧杯|🧪||最常用的玻璃容器，用来盛放、混合或加热溶液。|Pour the solution into a clean beaker.|把溶液倒进一个干净的烧杯里。|The beaker holds 100 mL of water.|这个烧杯能装 100 毫升水。|I rinsed the beaker with deionized water.|我用去离子水冲洗了烧杯。
+equip|volumetric flask|||n.|容量瓶|🧪||用来配制准确浓度的溶液，瓶颈上有一条刻度线。|Use a volumetric flask to prepare the standard solution.|用容量瓶配制标准溶液。|Fill the volumetric flask up to the mark.|把容量瓶加到刻度线。|A 250 mL volumetric flask is on the bench.|实验台上有一个 250 毫升的容量瓶。
+equip|pipette|||n.|移液管；移液枪|💧||用来准确移取少量液体；动词也可以说 pipette 20 µL。|Use a pipette to add 20 µL of ink.|用移液枪加 20 微升墨水。|The pipette tip must be changed each time.|每次都要换移液枪头。|She dropped the catalyst ink with a pipette.|她用移液枪滴加催化剂墨水。
+equip|crucible|||n.|坩埚|🏺||耐高温的小容器，煅烧样品时用。|Put the powder into a ceramic crucible.|把粉末放进陶瓷坩埚里。|The crucible was heated to 500 °C.|坩埚被加热到 500 摄氏度。|Cover the crucible with a lid.|给坩埚盖上盖子。
+equip|tube furnace|||n.|管式炉|🔥||在可控气氛下高温处理样品的炉子。|The sample was annealed in a tube furnace.|样品在管式炉里退火。|Set the tube furnace to 450 °C.|把管式炉设到 450 摄氏度。|Argon flows through the tube furnace.|氩气流过管式炉。
+equip|fume hood|||n.|通风橱|🌬️||处理有毒或有挥发性的试剂时必须在里面操作。|Always handle acids in the fume hood.|处理酸一定要在通风橱里。|The fume hood is not working today.|通风橱今天坏了。|Keep the fume hood sash low.|把通风橱的玻璃门拉低。
+equip|glovebox|||n.|手套箱|🧤||充满惰性气体的密封箱，用来处理怕水怕氧的材料。|The cell was assembled in a glovebox.|电池是在手套箱里组装的。|The glovebox is filled with argon.|手套箱里充满了氩气。|Check the oxygen level in the glovebox.|检查手套箱里的氧含量。
+equip|potentiostat|||n.|恒电位仪；电化学工作站|🎛️||电化学测试的核心仪器，控制电位并测量电流。|Connect the electrodes to the potentiostat.|把电极接到恒电位仪上。|The potentiostat records the current.|恒电位仪记录电流。|Our lab has a new potentiostat.|我们实验室有一台新的电化学工作站。
+equip|working electrode|WE||n.|工作电极|⚡||发生你要研究的反应的那个电极，缩写 WE。|The catalyst was loaded on the working electrode.|催化剂负载在工作电极上。|The working electrode is a glassy carbon disk.|工作电极是玻碳圆盘。|Polish the working electrode before each test.|每次测试前打磨工作电极。
+equip|counter electrode|CE||n.|对电极|⚡||和工作电极构成回路的电极，常用铂丝或碳棒，缩写 CE。|A platinum wire was used as the counter electrode.|用铂丝作对电极。|The counter electrode completes the circuit.|对电极使电路闭合。|Keep the counter electrode away from the sample.|让对电极离样品远一点。
+equip|reference electrode|RE||n.|参比电极|📏|reference electrode Ag/AgCl|提供稳定电位基准的电极，如 Ag/AgCl、SCE，缩写 RE。|An Ag/AgCl reference electrode was used.|使用了 Ag/AgCl 参比电极。|Store the reference electrode in KCl solution.|把参比电极保存在氯化钾溶液里。|The reference electrode gives a stable potential.|参比电极提供稳定的电位。
+equip|electrochemical cell|||n.|电化学池；电解池|🔋||装电解液和电极、进行电化学测试的容器。|A three-electrode electrochemical cell was used.|使用了三电极电化学池。|Fill the electrochemical cell with electrolyte.|往电化学池里加电解液。|The electrochemical cell has a quartz window.|这个电化学池有一个石英窗口。
+equip|centrifuge|||n.|离心机|🌀||靠高速旋转把固体和液体分开；也可以作动词。|Put the tubes into the centrifuge.|把离心管放进离心机。|The centrifuge runs at 8000 rpm.|离心机转速为 8000 转每分钟。|Balance the centrifuge before you start.|开始前给离心机配平。
+equip|autoclave|||n.|高压反应釜|🫙|hydrothermal autoclave reactor|水热合成用的密封耐压容器，通常有聚四氟乙烯内衬。|The solution was sealed in an autoclave.|溶液被密封在反应釜里。|Heat the autoclave at 180 °C for 12 hours.|把反应釜在 180 摄氏度加热 12 小时。|Let the autoclave cool down naturally.|让反应釜自然冷却。
+test|linear sweep voltammetry|LSV||n.|线性扫描伏安法|📈||电位朝一个方向匀速扫描，记录电流；测催化活性最常用。|Linear sweep voltammetry was used to measure the activity.|用线性扫描伏安法测量活性。|The linear sweep voltammetry curve shows a low onset potential.|线性扫描伏安曲线显示起始电位很低。|We ran linear sweep voltammetry at 5 mV/s.|我们以 5 毫伏每秒进行线性扫描伏安测试。
+test|cyclic voltammetry|CV||n.|循环伏安法|🔁||电位来回扫描，可以看氧化还原峰和可逆性。|Cyclic voltammetry shows two redox peaks.|循环伏安显示两个氧化还原峰。|We used cyclic voltammetry to activate the electrode.|我们用循环伏安法活化电极。|The cyclic voltammetry scan rate was 50 mV/s.|循环伏安的扫速是 50 毫伏每秒。
+test|electrochemical impedance spectroscopy|EIS||n.|电化学阻抗谱|〰️||施加小幅交流信号测阻抗，用来分析电荷转移电阻等。|Electrochemical impedance spectroscopy was measured at 1.5 V.|在 1.5 伏下测量了电化学阻抗谱。|Electrochemical impedance spectroscopy shows a small charge transfer resistance.|电化学阻抗谱显示电荷转移电阻很小。|We fitted the electrochemical impedance spectroscopy data with a circuit model.|我们用等效电路模型拟合了阻抗谱数据。
+test|chronoamperometry|CA||n.|计时电流法|⏱️||固定电位，记录电流随时间的变化；常用来测稳定性。|Chronoamperometry was used to test the stability.|用计时电流法测试稳定性。|The chronoamperometry curve stayed flat for 20 hours.|计时电流曲线 20 小时保持平稳。|We ran chronoamperometry at a fixed potential.|我们在固定电位下做了计时电流测试。
+test|chronopotentiometry|CP||n.|计时电位法|⏱️||固定电流，记录电位随时间的变化。|Chronopotentiometry was performed at 10 mA per square centimeter.|在 10 毫安每平方厘米下进行了计时电位测试。|The chronopotentiometry test lasted 50 hours.|计时电位测试持续了 50 小时。|Chronopotentiometry shows a stable potential.|计时电位法显示电位稳定。
+test|Mott-Schottky analysis|M-S||n.|莫特-肖特基分析|📉|Mott–Schottky plot|通过电容随电位的变化，得到平带电位和载流子浓度；PEC 常用。|Mott-Schottky analysis gives the flat band potential.|莫特-肖特基分析可以得到平带电位。|The Mott-Schottky analysis shows n-type behavior.|莫特-肖特基分析显示为 n 型行为。|We did Mott-Schottky analysis in the dark.|我们在暗态下做了莫特-肖特基分析。
+test|mass spectrometry|MS||n.|质谱法|⚖️||按质荷比分离离子，用来鉴定产物或气体成分。|Mass spectrometry was used to detect the gas products.|用质谱法检测气体产物。|The mass spectrometry signal of oxygen increased.|氧气的质谱信号增强了。|Online mass spectrometry confirms hydrogen evolution.|在线质谱证实有氢气析出。
+test|X-ray diffraction|XRD||n.|X 射线衍射|💎||用来确定晶体结构和物相。|X-ray diffraction confirms the crystal phase.|X 射线衍射确认了晶相。|The X-ray diffraction pattern has sharp peaks.|X 射线衍射图谱有尖锐的峰。|No impurity was found by X-ray diffraction.|X 射线衍射没有发现杂质。
+test|X-ray photoelectron spectroscopy|XPS||n.|X 射线光电子能谱|🔬||分析表面元素组成和化学价态。|X-ray photoelectron spectroscopy shows the oxidation state of nickel.|X 射线光电子能谱显示了镍的价态。|We used X-ray photoelectron spectroscopy to study the surface.|我们用 X 射线光电子能谱研究表面。|The X-ray photoelectron spectroscopy peak shifted to higher energy.|X 射线光电子能谱的峰向高能方向移动。
+test|scanning electron microscopy|SEM||n.|扫描电子显微镜|🔬||观察样品表面形貌。|Scanning electron microscopy shows a nanosheet structure.|扫描电镜显示为纳米片结构。|The film was checked by scanning electron microscopy.|用扫描电镜检查了薄膜。|Scanning electron microscopy images were taken at 5 kV.|扫描电镜图像是在 5 千伏下拍的。
+test|transmission electron microscopy|TEM||n.|透射电子显微镜|🔬||观察样品内部结构和晶格条纹，分辨率比 SEM 高。|Transmission electron microscopy shows clear lattice fringes.|透射电镜显示清晰的晶格条纹。|The particle size was measured by transmission electron microscopy.|用透射电镜测量了颗粒尺寸。|We prepared a grid for transmission electron microscopy.|我们制备了透射电镜用的铜网。
+test|Raman spectroscopy|||n.|拉曼光谱|🌈||通过分子振动信息判断物相和化学键，可以做原位测试。|Raman spectroscopy shows a new peak at 480 wavenumbers.|拉曼光谱在 480 波数处出现新峰。|In situ Raman spectroscopy was used during the reaction.|反应过程中使用了原位拉曼光谱。|Raman spectroscopy confirms the oxide phase.|拉曼光谱确认了氧化物相。
+test|UV-vis spectroscopy|UV-vis||n.|紫外-可见光谱|🌈||测量材料对紫外和可见光的吸收，可以估算带隙。|UV-vis spectroscopy was used to find the band gap.|用紫外-可见光谱求带隙。|The UV-vis spectroscopy result shows strong absorption.|紫外-可见光谱结果显示吸收很强。|We measured the film by UV-vis spectroscopy.|我们用紫外-可见光谱测量了薄膜。
+test|gas chromatography|GC||n.|气相色谱|📊||分离并定量气体产物，如氢气和氧气。|Gas chromatography was used to measure hydrogen.|用气相色谱测量氢气。|The gas chromatography peak of oxygen is small.|氧气的气相色谱峰很小。|We injected the sample into the gas chromatography system.|我们把样品注入气相色谱系统。
+echem|electrode|||n.|电极|⚡||导电并发生电化学反应的部件。|The electrode was cleaned with ethanol.|电极用乙醇清洗过。|The reaction happens at the electrode surface.|反应发生在电极表面。|We need a new electrode for this test.|这次测试我们需要一个新电极。
+echem|electrolyte|||n.|电解液；电解质|🧴||含有可移动离子、能导电的溶液或物质，如 1 M KOH。|The electrolyte is 1 M KOH.|电解液是 1 摩尔每升的氢氧化钾。|Change the electrolyte after each test.|每次测试后更换电解液。|The electrolyte was purged with nitrogen.|电解液用氮气吹扫过。
+echem|anode|||n.|阳极|➕||发生氧化反应的电极。|Oxygen is produced at the anode.|氧气在阳极产生。|The anode is made of nickel foam.|阳极由泡沫镍制成。|Oxidation takes place at the anode.|氧化反应发生在阳极。
+echem|cathode|||n.|阴极|➖||发生还原反应的电极。|Hydrogen is produced at the cathode.|氢气在阴极产生。|The cathode was coated with platinum.|阴极镀了铂。|Reduction takes place at the cathode.|还原反应发生在阴极。
+echem|potential|||n.|电位；电势|🔌||电化学里指电极电位，单位伏特；论文里要写清楚相对哪个参比。|The potential was swept from 1.0 to 1.8 V.|电位从 1.0 伏扫到 1.8 伏。|All potentials were converted to the RHE scale.|所有电位都换算到了可逆氢电极标度。|A higher potential gives a larger current.|电位越高，电流越大。
+echem|overpotential|||n.|过电位|📶||实际所需电位超出理论电位的部分，越小说明催化剂越好。|The catalyst shows a low overpotential.|这个催化剂的过电位很低。|The overpotential at 10 mA is 270 mV.|在 10 毫安下过电位是 270 毫伏。|We want to reduce the overpotential.|我们想降低过电位。
+echem|current density|||n.|电流密度|📊||单位面积上的电流，常用 mA cm⁻²，便于不同样品比较。|The current density reached 100 mA per square centimeter.|电流密度达到了 100 毫安每平方厘米。|A higher current density means faster reaction.|电流密度越高，反应越快。|The current density dropped after ten hours.|十小时后电流密度下降了。
+echem|Tafel slope|||n.|塔菲尔斜率|📐|Tafel equation plot|过电位对电流密度对数作图的斜率，反映反应动力学，越小越好。|The Tafel slope is 45 mV per decade.|塔菲尔斜率是 45 毫伏每十倍电流。|A small Tafel slope means fast kinetics.|塔菲尔斜率小说明动力学快。|We calculated the Tafel slope from the LSV curve.|我们由 LSV 曲线算出了塔菲尔斜率。
+echem|onset potential|||n.|起始电位|🚦||电流开始明显上升时的电位。|The onset potential is 1.45 V.|起始电位是 1.45 伏。|Doping shifts the onset potential to a lower value.|掺杂使起始电位降低。|A low onset potential is good for the reaction.|起始电位低对反应有利。
+echem|oxidation|||n.|氧化|🔺||失去电子的过程；动词是 oxidize。|Oxidation happens at the anode.|氧化发生在阳极。|The oxidation of water produces oxygen.|水的氧化产生氧气。|The oxidation peak appears at 1.35 V.|氧化峰出现在 1.35 伏。
+echem|reduction|||n.|还原|🔻||得到电子的过程；动词是 reduce。|Reduction happens at the cathode.|还原发生在阴极。|The reduction of protons gives hydrogen.|质子还原生成氢气。|The reduction peak is weaker than before.|还原峰比之前弱。
+echem|catalyst|||n.|催化剂|✨||加快反应但自身不被消耗的物质；电催化剂是 electrocatalyst。|The catalyst is stable for 100 hours.|这个催化剂能稳定 100 小时。|We made a new catalyst from nickel and iron.|我们用镍和铁做了一种新催化剂。|The catalyst lowers the energy barrier.|催化剂降低了能垒。
+echem|oxygen evolution reaction|OER||n.|析氧反应|🫧||水氧化生成氧气的反应，是水分解中较慢的半反应。|The oxygen evolution reaction is slow.|析氧反应很慢。|This material is active for the oxygen evolution reaction.|这种材料对析氧反应有活性。|The oxygen evolution reaction needs four electrons.|析氧反应需要四个电子。
+echem|hydrogen evolution reaction|HER||n.|析氢反应|🫧||质子或水被还原生成氢气的反应。|Platinum is the best catalyst for the hydrogen evolution reaction.|铂是析氢反应最好的催化剂。|The hydrogen evolution reaction happens at the cathode.|析氢反应发生在阴极。|We tested the hydrogen evolution reaction in acid.|我们在酸性条件下测试了析氢反应。
+echem|faradaic efficiency|FE||n.|法拉第效率|🎯||实际生成的产物量与按电荷计算的理论量之比。|The faradaic efficiency is close to 100 percent.|法拉第效率接近 100%。|We measured the faradaic efficiency by gas chromatography.|我们用气相色谱测了法拉第效率。|A low faradaic efficiency means side reactions.|法拉第效率低说明有副反应。
+echem|water splitting|||n.|水分解|💧||把水分解成氢气和氧气，包括 HER 和 OER 两个半反应。|Water splitting produces hydrogen and oxygen.|水分解产生氢气和氧气。|Solar water splitting is a clean way to make fuel.|太阳能水分解是一种清洁的制燃料方法。|The cell voltage for water splitting is 1.6 V.|水分解的槽电压是 1.6 伏。
+inorg|oxidation state|||n.|氧化态；化合价|🔢||原子在化合物中的形式电荷，如 Fe(III) 的氧化态是 +3。|The oxidation state of iron is plus three.|铁的氧化态是正三。|Nickel changes its oxidation state during the reaction.|镍在反应中改变氧化态。|XPS can show the oxidation state.|XPS 可以显示氧化态。
+inorg|ligand|||n.|配体|🔗||与中心金属离子配位的分子或离子。|Water acts as a ligand here.|这里水作为配体。|The ligand binds to the metal center.|配体与金属中心结合。|We changed the ligand to tune the activity.|我们更换配体来调节活性。
+inorg|coordination|||n.|配位|🕸️||金属与配体成键；coordination number 是配位数。|The coordination number of cobalt is six.|钴的配位数是六。|The coordination environment affects the activity.|配位环境影响活性。|Octahedral coordination is common for nickel.|八面体配位在镍中很常见。
+inorg|precipitate|||n. / v.|沉淀；析出沉淀|🌫️||名词指沉淀物，动词指从溶液中析出。|A green precipitate formed in the solution.|溶液里生成了绿色沉淀。|Wash the precipitate three times with water.|用水洗涤沉淀三次。|The precipitate was dried at 60 °C.|沉淀在 60 摄氏度下干燥。
+inorg|transition metal|||n.|过渡金属|⚙️||周期表中间的 d 区金属，如 Fe、Co、Ni，是常见的催化活性中心。|Nickel is a transition metal.|镍是一种过渡金属。|Transition metal oxides are cheap catalysts.|过渡金属氧化物是便宜的催化剂。|We doped the film with a transition metal.|我们用过渡金属掺杂了薄膜。
+inorg|oxide|||n.|氧化物|🧱||金属或非金属与氧形成的化合物，如 TiO₂。|Iron oxide is a common photoanode material.|氧化铁是常见的光阳极材料。|The metal turned into an oxide in air.|金属在空气中变成了氧化物。|A thin oxide layer covers the surface.|表面覆盖着一层薄薄的氧化物。
+inorg|hydroxide|||n.|氢氧化物|🧪||含 OH⁻ 的化合物，如 Ni(OH)₂、KOH。|Nickel hydroxide is active for water oxidation.|氢氧化镍对水氧化有活性。|Potassium hydroxide is a strong base.|氢氧化钾是强碱。|The hydroxide layer grew during the test.|测试过程中氢氧化物层变厚了。
+inorg|cation|||n.|阳离子|➕||带正电的离子，如 Ni²⁺。读作 CAT-ion，不是“kei-shun”。|Sodium is a cation in this salt.|在这种盐里钠是阳离子。|The cation moves to the cathode.|阳离子向阴极移动。|We replaced the cation with iron.|我们用铁替换了阳离子。
+inorg|anion|||n.|阴离子|➖||带负电的离子，如 OH⁻、SO₄²⁻。|Chloride is a common anion.|氯离子是常见的阴离子。|The anion moves to the anode.|阴离子向阳极移动。|The anion affects the reaction rate.|阴离子影响反应速率。
+inorg|lattice|||n.|晶格|🔷||晶体中原子周期性排列的框架；lattice oxygen 是晶格氧。|Iron atoms enter the lattice.|铁原子进入晶格。|The lattice expands after doping.|掺杂后晶格膨胀。|Lattice oxygen takes part in the reaction.|晶格氧参与了反应。
+inorg|doping|||n.|掺杂|💉||向材料中引入少量其他元素以改变性质；动词 dope，掺杂元素叫 dopant。|Doping improves the conductivity.|掺杂提高了导电性。|Iron doping lowers the overpotential.|铁掺杂降低了过电位。|We studied the effect of doping level.|我们研究了掺杂量的影响。
+inorg|oxygen vacancy|||n.|氧空位|⭕||晶格中缺失氧原子的位置，常能提高导电性和活性。|An oxygen vacancy can act as an active site.|氧空位可以作为活性位点。|Annealing in hydrogen creates more oxygen vacancies.|在氢气中退火会产生更多氧空位。|The oxygen vacancy level was checked by XPS.|用 XPS 检查了氧空位的量。
+inorg|precursor|||n.|前驱体|🧬||合成目标材料所用的起始原料。|Nickel nitrate was used as the precursor.|用硝酸镍作前驱体。|Dissolve the precursor in water.|把前驱体溶解在水里。|The precursor turns into oxide after heating.|前驱体加热后变成氧化物。
+inorg|stoichiometry|||n.|化学计量比|⚖️||化合物或反应中各物质之间的数量比例。|The stoichiometry of the film is correct.|薄膜的化学计量比是对的。|We changed the stoichiometry of nickel and iron.|我们改变了镍和铁的计量比。|Check the stoichiometry before mixing.|混合前检查化学计量比。
+pec|photoanode|||n.|光阳极|☀️||受光照后发生氧化反应的半导体电极，通常是 n 型。|The photoanode is made of bismuth vanadate.|光阳极由钒酸铋制成。|Light hits the photoanode from the back side.|光从背面照射光阳极。|The photoanode oxidizes water under light.|光阳极在光照下氧化水。
+pec|photocathode|||n.|光阴极|🌙||受光照后发生还原反应的半导体电极，通常是 p 型。|The photocathode produces hydrogen under light.|光阴极在光照下产生氢气。|Copper oxide is used as a photocathode.|氧化亚铜被用作光阴极。|The photocathode is not stable in acid.|这个光阴极在酸里不稳定。
+pec|photocurrent|||n.|光电流|💡||光照下产生的电流；光电流密度是 PEC 性能的核心指标。|The photocurrent reached 3 mA at 1.23 V.|在 1.23 伏下光电流达到 3 毫安。|The photocurrent drops when the light is off.|关灯后光电流下降。|A cocatalyst increases the photocurrent.|助催化剂提高了光电流。
+pec|band gap|||n.|带隙；禁带宽度|🪜||价带顶和导带底之间的能量差，决定材料能吸收哪些波长的光。|The band gap of this oxide is 2.4 eV.|这种氧化物的带隙是 2.4 电子伏。|A small band gap absorbs more visible light.|带隙小能吸收更多可见光。|We found the band gap from the Tauc plot.|我们由 Tauc 图求出了带隙。
+pec|conduction band|CB||n.|导带|⬆️||电子可以自由移动的能带；光生电子被激发到这里。|Electrons jump to the conduction band under light.|电子在光照下跃迁到导带。|The conduction band edge is above the hydrogen level.|导带边高于析氢能级。|Electrons in the conduction band move to the back contact.|导带中的电子向背接触移动。
+pec|valence band|VB||n.|价带|⬇️||被电子占满的能带；光生空穴留在这里。|Holes stay in the valence band.|空穴留在价带。|The valence band edge is deep enough for water oxidation.|价带边足够深，可以氧化水。|Light excites electrons from the valence band.|光把电子从价带激发出来。
+pec|semiconductor|||n.|半导体|🔲||导电性介于导体和绝缘体之间、有带隙的材料。|Titanium dioxide is an n-type semiconductor.|二氧化钛是 n 型半导体。|The semiconductor absorbs light and makes charges.|半导体吸收光并产生电荷。|We coated the semiconductor with a catalyst.|我们在半导体上涂了催化剂。
+pec|charge carrier|||n.|载流子|🏃||能移动并传导电流的电子或空穴。|Light creates charge carriers in the film.|光在薄膜中产生载流子。|The charge carrier density was found by Mott-Schottky analysis.|载流子浓度由莫特-肖特基分析得到。|Charge carriers must reach the surface to react.|载流子必须到达表面才能反应。
+pec|electron-hole pair|||n.|电子-空穴对|👫||吸收一个光子后同时产生的一个电子和一个空穴。|Each photon creates one electron-hole pair.|每个光子产生一对电子-空穴。|The electron-hole pair is separated by the electric field.|电子-空穴对被电场分开。|Many electron-hole pairs are lost before they react.|很多电子-空穴对在反应前就损失了。
+pec|recombination|||n.|复合|💥||电子和空穴重新结合、能量被浪费的过程，是 PEC 效率低的主要原因。|Recombination lowers the photocurrent.|复合降低了光电流。|Surface recombination is fast in this material.|这种材料的表面复合很快。|The coating reduces recombination.|涂层减少了复合。
+pec|depletion layer|||n.|耗尽层；空间电荷层|🧱|semiconductor depletion region|半导体与电解液接触处缺少多数载流子的区域，内部有电场帮助电荷分离。|The depletion layer separates the charges.|耗尽层把电荷分开。|A wider depletion layer helps charge collection.|耗尽层越宽越有利于电荷收集。|The depletion layer forms at the interface.|耗尽层在界面处形成。
+pec|flat band potential|||n.|平带电位|📏||能带不弯曲时的电极电位，可以由 Mott–Schottky 图得到。|The flat band potential is 0.3 V.|平带电位是 0.3 伏。|We got the flat band potential from the Mott-Schottky plot.|我们由莫特-肖特基图得到了平带电位。|Doping shifts the flat band potential.|掺杂使平带电位移动。
+pec|illumination|||n.|光照|🔦||指用光照射样品；under illumination 是“在光照下”。|The current was measured under illumination.|电流是在光照下测量的。|Back illumination gives a higher photocurrent.|背面光照得到更高的光电流。|Turn off the illumination to measure the dark current.|关闭光照来测暗电流。
+pec|wavelength|||n.|波长|🌊||光波的长度，单位纳米；波长越短能量越高。|The film absorbs light below a wavelength of 520 nm.|薄膜吸收波长小于 520 纳米的光。|We measured the efficiency at each wavelength.|我们测量了每个波长下的效率。|A shorter wavelength carries more energy.|波长越短能量越高。
+pec|solar simulator|||n.|太阳光模拟器|🌞||发出与标准太阳光（AM 1.5G）相近的光的光源。|The sample was tested under a solar simulator.|样品在太阳光模拟器下测试。|Calibrate the solar simulator before the test.|测试前校准太阳光模拟器。|The solar simulator gives 100 mW per square centimeter.|太阳光模拟器的光强是 100 毫瓦每平方厘米。
+ops|dissolve|||v.|溶解|💧||把固体溶到液体里；dissolve A in B。|Dissolve the salt in 50 mL of water.|把盐溶解在 50 毫升水里。|The powder does not dissolve in ethanol.|这种粉末不溶于乙醇。|Stir until the solid is fully dissolved.|搅拌到固体完全溶解。
+ops|stir|||v.|搅拌|🥄||论文里常用被动：was stirred for 30 min。|Stir the solution for 30 minutes.|把溶液搅拌 30 分钟。|The mixture was stirred at room temperature.|混合物在室温下搅拌。|Keep stirring while you add the acid.|加酸的时候持续搅拌。
+ops|anneal|||v.|退火|🔥||在一定温度下加热一段时间再冷却，用来改善结晶度。|Anneal the film at 450 °C for two hours.|把薄膜在 450 摄氏度退火两小时。|The sample was annealed in air.|样品在空气中退火。|We annealed the electrode to improve its stability.|我们对电极退火以提高稳定性。
+ops|calcine|||v.|煅烧|🌋||在高温下加热固体使其分解或转变成氧化物；名词 calcination。|Calcine the powder at 600 °C.|把粉末在 600 摄氏度煅烧。|The precursor was calcined in a furnace.|前驱体在炉子里煅烧。|We calcined the sample for three hours.|我们把样品煅烧了三小时。
+ops|rinse|||v.|冲洗|🚿||用液体冲掉表面的残留物；rinse with water。|Rinse the electrode with deionized water.|用去离子水冲洗电极。|The film was rinsed and dried.|薄膜冲洗后干燥。|Rinse the beaker three times.|把烧杯冲洗三次。
+ops|deposit|||v.|沉积|🎨||让材料附着在基底表面；electrodeposit 是电沉积，名词 deposition。|We deposited the catalyst on nickel foam.|我们把催化剂沉积在泡沫镍上。|A thin film was deposited on the glass.|在玻璃上沉积了一层薄膜。|Deposit the layer for 60 seconds.|沉积这一层 60 秒。
+ops|synthesize|||v.|合成|🧬||由原料制备出目标材料；名词 synthesis。|We synthesized the oxide by a hydrothermal method.|我们用水热法合成了这种氧化物。|The catalyst was synthesized at 180 °C.|催化剂在 180 摄氏度合成。|It is easy to synthesize this material.|这种材料很容易合成。
+ops|dilute|||v. / adj.|稀释；稀的|🫗||动词是加溶剂降低浓度；形容词如 dilute acid 稀酸。|Dilute the acid with water.|用水稀释酸。|The sample was diluted ten times.|样品被稀释了十倍。|Use a dilute solution for this test.|这个测试用稀溶液。
+ops|weigh|||v.|称量|⚖️||用天平称出质量；weigh out 10 mg。|Weigh 10 mg of the powder.|称取 10 毫克粉末。|The sample was weighed on a balance.|样品在天平上称量。|Weigh the electrode before and after the test.|测试前后都称一下电极。
+ops|filter|||v. / n.|过滤；滤纸|🧻||把固体从液体中分离出来。|Filter the solution to remove the solid.|过滤溶液以除去固体。|The product was filtered and washed.|产物经过滤和洗涤。|We filtered the mixture through paper.|我们用滤纸过滤了混合物。
+ops|purge|||v.|吹扫；通气除氧|🌬️||向溶液或装置里通惰性气体，赶走氧气等。|Purge the electrolyte with nitrogen for 30 minutes.|用氮气吹扫电解液 30 分钟。|The cell was purged with argon.|电解池用氩气吹扫过。|Purge the solution before the test.|测试前给溶液通气除氧。
+ops|immerse|||v.|浸入|🛁||把样品完全放进液体里；immerse A in B。|Immerse the electrode in the electrolyte.|把电极浸入电解液。|The film was immersed in the solution for one hour.|薄膜在溶液里浸泡了一小时。|Immerse only the active area.|只把活性区域浸进去。
+ops|calibrate|||v.|校准|🎚️||用标准对仪器或电极进行校正；名词 calibration。|Calibrate the reference electrode before use.|使用前校准参比电极。|The light source was calibrated to one sun.|光源被校准到一个太阳光强。|We calibrate the pH meter every week.|我们每周校准 pH 计。
+</script>
 <script type="text/plain" id="talk">
 out of ten|（打分）满分十分得…分|🔟|给东西打分时用：数字 + out of ten。|I'd give this movie six out of ten.|这部电影我打六分（满分十分）。|How was the food? Eight out of ten.|菜怎么样？八分吧。|On a bad day, my energy is two out of ten.|状态差的时候，我的精力只有两分。
 how's it going|最近怎么样；你好吗|👋|熟人之间最常见的打招呼，回答 Good / Not bad 就行，不用细说。|Hey, how's it going?|嘿，最近怎么样？|How's it going with your new job?|新工作怎么样？|I asked him how's it going, and he just smiled.|我问他最近怎么样，他只是笑了笑。
@@ -447,6 +546,32 @@ const BANK=document.getElementById('bank').textContent.trim().split('\n').map(l=
 const TALK=document.getElementById('talk').textContent.trim().split('\n').map(l=>{const a=l.split('|');
   return{w:a[0],ipa:'',pos:'口语',zh:a[1],emoji:a[2],q:'',cat:'life',tip:a[3],ex:[0,1,2].map(i=>({en:a[4+i*2],zh:a[5+i*2]}))}});
 const TALK_N=5;
+const CHEM=document.getElementById('chem').textContent.trim().split('\n').map(l=>{const a=l.split('|');
+  return{sub:a[0],w:a[1],abbr:a[2],ipa:a[3],pos:a[4],zh:a[5]+(a[2]?'（'+a[2]+'）':''),emoji:a[6],q:a[7],cat:'formal',tip:a[8],ex:[0,1,2].map(i=>({en:a[9+i*2],zh:a[10+i*2]}))}});
+const CCATS=[['pt','元素周期表','⚛️'],['equip','实验器材','🧪'],['test','测试与表征','📈'],['echem','电化学','⚡'],['inorg','无机化学','🧱'],['pec','光电化学·半导体','☀️'],['ops','实验操作','🥄']];
+const ELS='H,hydrogen,氢;He,helium,氦;Li,lithium,锂;Be,beryllium,铍;B,boron,硼;C,carbon,碳;N,nitrogen,氮;O,oxygen,氧;F,fluorine,氟;Ne,neon,氖;Na,sodium,钠;Mg,magnesium,镁;Al,aluminium,铝;Si,silicon,硅;P,phosphorus,磷;S,sulfur,硫;Cl,chlorine,氯;Ar,argon,氩;K,potassium,钾;Ca,calcium,钙;Sc,scandium,钪;Ti,titanium,钛;V,vanadium,钒;Cr,chromium,铬;Mn,manganese,锰;Fe,iron,铁;Co,cobalt,钴;Ni,nickel,镍;Cu,copper,铜;Zn,zinc,锌;Ga,gallium,镓;Ge,germanium,锗;As,arsenic,砷;Se,selenium,硒;Br,bromine,溴;Kr,krypton,氪;Rb,rubidium,铷;Sr,strontium,锶;Y,yttrium,钇;Zr,zirconium,锆;Nb,niobium,铌;Mo,molybdenum,钼;Tc,technetium,锝;Ru,ruthenium,钌;Rh,rhodium,铑;Pd,palladium,钯;Ag,silver,银;Cd,cadmium,镉;In,indium,铟;Sn,tin,锡;Sb,antimony,锑;Te,tellurium,碲;I,iodine,碘;Xe,xenon,氙;Cs,caesium,铯;Ba,barium,钡;La,lanthanum,镧;Ce,cerium,铈;Pr,praseodymium,镨;Nd,neodymium,钕;Pm,promethium,钷;Sm,samarium,钐;Eu,europium,铕;Gd,gadolinium,钆;Tb,terbium,铽;Dy,dysprosium,镝;Ho,holmium,钬;Er,erbium,铒;Tm,thulium,铥;Yb,ytterbium,镱;Lu,lutetium,镥;Hf,hafnium,铪;Ta,tantalum,钽;W,tungsten,钨;Re,rhenium,铼;Os,osmium,锇;Ir,iridium,铱;Pt,platinum,铂;Au,gold,金;Hg,mercury,汞;Tl,thallium,铊;Pb,lead,铅;Bi,bismuth,铋;Po,polonium,钋;At,astatine,砹;Rn,radon,氡;Fr,francium,钫;Ra,radium,镭;Ac,actinium,锕;Th,thorium,钍;Pa,protactinium,镤;U,uranium,铀;Np,neptunium,镎;Pu,plutonium,钚;Am,americium,镅;Cm,curium,锔;Bk,berkelium,锫;Cf,californium,锎;Es,einsteinium,锿;Fm,fermium,镄;Md,mendelevium,钔;No,nobelium,锘;Lr,lawrencium,铹;Rf,rutherfordium,𬬻;Db,dubnium,𬭊;Sg,seaborgium,𬭳;Bh,bohrium,𬭛;Hs,hassium,𬭶;Mt,meitnerium,鿏;Ds,darmstadtium,𫟼;Rg,roentgenium,𬬭;Cn,copernicium,鿔;Nh,nihonium,鿭;Fl,flerovium,𫓧;Mc,moscovium,镆;Lv,livermorium,𫟷;Ts,tennessine,鿬;Og,oganesson,鿫'.split(';').map((x,i)=>{const a=x.split(',');return{z:i+1,sym:a[0],name:a[1],zh:a[2]}});
+function elPos(z){
+  if(z===1)return[1,1];if(z===2)return[1,18];
+  if(z<=4)return[2,z-2];if(z<=10)return[2,z+8];
+  if(z<=12)return[3,z-10];if(z<=18)return[3,z];
+  if(z<=36)return[4,z-18];if(z<=54)return[5,z-36];
+  if(z<=56)return[6,z-54];if(z<=71)return[9,z-54];if(z<=86)return[6,z-68];
+  if(z<=88)return[7,z-86];if(z<=103)return[10,z-86];return[7,z-100];
+}
+const elKind=z=>[2,10,18,36,54,86,118].indexOf(z)>=0?'ng':[1,6,7,8,9,15,16,17,34,35,53].indexOf(z)>=0?'nm':(z>=57&&z<=71)||(z>=89&&z<=103)?'f':'m';
+function elItem(e){
+  const N=e.name.charAt(0).toUpperCase()+e.name.slice(1);
+  return{sub:'pt',w:e.name,abbr:e.sym,ipa:'',pos:'n.',zh:e.zh+'（元素 '+e.sym+'）',emoji:'⚛️',q:'',cat:'formal',
+    tip:'元素符号 '+e.sym+'，原子序数 '+e.z+'。',
+    ex:[{en:'The chemical symbol for '+e.name+' is '+e.sym+'.',zh:e.zh+'的元素符号是 '+e.sym+'。'},
+        {en:N+' has the atomic number '+e.z+'.',zh:e.zh+'的原子序数是 '+e.z+'。'},
+        {en:N+' is element '+e.z+' in the periodic table.',zh:e.zh+'是元素周期表中的第 '+e.z+' 号元素。'}]};
+}
+function chemOpen(it){
+  const k=slug(it.w);
+  if(!S.words[k]){addWords([it],'chem');persist(k)}
+  return k;
+}
 const TALKQ={"out of ten":"star rating","how's it going":"people greeting","I'm starving":"empty plate","I'm full":"dinner table food","sounds good":"thumbs up","that makes sense":"light bulb","take your time":"hourglass","I'm on my way":"person walking street","running late":"alarm clock","long time no see":"friends hugging","catch up":"friends talking cafe","hang out":"friends in park","grab a coffee":"takeaway coffee cup","for here or to go":"takeaway food","can I get":"cafe counter","keep the change":"coins","how much is it":"price tags shop","just looking":"clothes shop interior","I'll take it":"shopping bags","give me a hand":"carrying box","fair enough":"handshake","I'm done":"finish line","figure out":"jigsaw puzzle","find out":"magnifying glass","run out of":"low battery","pick up":"parcel locker","drop off":"parcel delivery","can I pay by card":"card payment terminal","try on":"fitting room clothes","flat white":"flat white coffee","takeaway":"takeaway food box","can I have the bill":"restaurant bill","split the bill":"friends paying at restaurant","book a table":"reserved table restaurant","how do I get to":"tourist reading map","top up":"ticket machine station","get off":"passengers getting off bus","make an appointment":"calendar appointment","I'm not feeling well":"sick person in bed","bulk bill":"doctor clinic reception","sore throat":"sore throat","move in":"moving boxes apartment","it's not working":"out of order sign","on special":"supermarket sale price tag"};
 const isTalk=w=>w&&w.src==='talk';
 const qOf=w=>isTalk(w)?(TALKQ[w.w]||''):(w.q||'');
@@ -899,7 +1024,7 @@ function relHTML(k){
     '<label class="small muted" for="rel-ant">反义词（用逗号隔开）</label><input id="rel-ant" type="text" value="'+esc((w.ant||[]).join(', '))+'" placeholder="例如：sad, unhappy" data-enter="saveRel" autocomplete="off" autocapitalize="off">'+
     '<div class="row"><button class="btn primary" data-act="saveRel" data-k="'+k+'">保存</button><button class="btn" data-act="cancelRel">取消</button></div></div>';
   const chips=a=>a.map(x=>'<button class="chip" data-act="chip" data-k="'+k+'" data-t="'+esc(x)+'" aria-pressed="'+(ui.chip&&ui.chip.k===k&&ui.chip.t===x)+'">'+esc(x)+'</button>').join('');
-  const syn=w.syn||[],ant=w.ant||[],loading=!w.rel&&!relTried[k]&&!/\s/.test(w.w)&&w.src!=='talk';
+  const syn=w.syn||[],ant=w.ant||[],loading=!w.rel&&!relTried[k]&&!/\s/.test(w.w)&&w.src!=='talk'&&w.src!=='chem';
   return (w.more?'<p class="more"><span class="muted small">我补充的释义</span> '+esc(w.more)+'</p>':'')+
     (syn.length?'<p class="rl"><span class="muted small">近义词</span>'+chips(syn)+'</p>':'')+
     (ant.length?'<p class="rl"><span class="muted small">反义词</span>'+chips(ant)+'</p>':'')+
@@ -909,7 +1034,7 @@ function relHTML(k){
 async function autoRel(){
   for(const el of document.querySelectorAll('[data-rel]')){
     const k=el.dataset.rel,w=S.words[k];
-    if(!w||w.rel||relTried[k]||/\s/.test(w.w)||w.src==='talk')continue;
+    if(!w||w.rel||relTried[k]||/\s/.test(w.w)||w.src==='talk'||w.src==='chem')continue;
     relTried[k]=1;
     try{
       const dm=q=>fetch('https://api.datamuse.com/words?md=f&'+q+encodeURIComponent(w.w)).then(x=>x.ok?x.json():Promise.reject());
@@ -932,7 +1057,7 @@ function cardHTML(k,extra){
     '<div class="stack" style="gap:4px;flex:1 1 200px"><h2 class="word">'+esc(w.w)+'</h2>'+
     '<div class="meta"><button class="speak" data-act="speak" data-t="'+esc(w.w)+'" aria-label="朗读">🔊</button>'+
     '<span>'+esc(w.ipa)+'</span><span>'+esc(w.pos)+'</span><span class="tag">'+(w.cat==='formal'?'正式':'日常')+'</span>'+
-    '<span class="tag">'+(w.src==='mine'?'我输入的':w.src==='talk'?'生活口语':'每日推送')+'</span></div></div></div>'+
+    '<span class="tag">'+(w.src==='mine'?'我输入的':w.src==='talk'?'生活口语':w.src==='chem'?'化学':'每日推送')+'</span></div></div></div>'+
     (isTalk(w)&&!qOf(w)?'':'<div class="row small muted"><button class="btn ghost" data-act="nextImg" data-k="'+k+'">换一张图</button>'+
     '<a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/search?tbm=isch&q='+encodeURIComponent(qOf(w)||w.w)+'">在 Google 图片中搜索 ↗</a>'+
     '<span>复制一张图片后在本页按 Ctrl/⌘+V，可以换成你选的图</span></div>')+
@@ -952,6 +1077,32 @@ const settingsHTML=()=>'<div class="row small muted"><label for="set-level">难�
   '<button class="btn ghost" data-act="retest">重做水平测试</button><button class="btn ghost" data-act="exportData">导出备份</button><button class="btn ghost" data-act="importData">导入备份</button><input type="file" id="imp" accept=".json,application/json" hidden></div>';
 
 const V={};
+V.chem=function(){
+  if(!ui.ready)return '<div class="row"><span class="spin"></span><span class="muted">正在读取你的学习记录…</span></div>';
+  const cat=ui.ccat;
+  if(!cat)return '<div class="row spread"><h2>化学专栏</h2></div>'+
+    '<p class="small muted" style="margin:0">选一个分类。点开过的词会自动进入“复习”和“打字练习”。</p>'+
+    '<div class="ccats">'+CCATS.map(c=>{
+      const tot=c[0]==='pt'?ELS.length:CHEM.filter(x=>x.sub===c[0]).length;
+      const got=c[0]==='pt'?ELS.filter(e=>{const w=S.words[slug(e.name)];return w&&w.src==='chem'}).length:CHEM.filter(x=>x.sub===c[0]&&S.words[slug(x.w)]).length;
+      return '<button class="ccat" data-act="ccat" data-c="'+c[0]+'"><span class="e" aria-hidden="true">'+c[2]+'</span><span class="t">'+c[1]+'</span><span class="small muted">已学 '+got+' / '+tot+'</span></button>'}).join('')+'</div>';
+  const C=CCATS.find(c=>c[0]===cat),head='<div class="row spread"><h2>'+C[2]+' '+C[1]+'</h2><button class="btn ghost" data-act="ccat" data-c="">← 所有分类</button></div>';
+  if(cat==='pt'){
+    const sel=ui.cel?ELS[ui.cel-1]:null,k=sel?slug(sel.name):'',have=sel&&S.words[k]&&S.words[k].src==='chem';
+    return head+'<p class="small muted" style="margin:0">点一个元素看英文名和发音。手机上可以左右滑动。</p>'+
+      '<div class="ptwrap"><div class="ptable">'+ELS.map(e=>{const p=elPos(e.z),w=S.words[slug(e.name)];
+        return '<button class="el '+elKind(e.z)+(w&&w.src==='chem'?' got':'')+'" style="grid-row:'+p[0]+';grid-column:'+p[1]+'" data-act="el" data-z="'+e.z+'" aria-pressed="'+(ui.cel===e.z)+'" aria-label="'+esc(e.name)+'"><i>'+e.z+'</i><b>'+e.sym+'</b></button>'}).join('')+'</div></div>'+
+      (sel?(have?cardHTML(k,'<button class="btn" data-act="pracWord" data-k="'+k+'">打字练习</button>'):
+        '<section class="panel"><div class="row"><span class="elbig">'+sel.sym+'</span><div class="stack" style="gap:2px"><h2 class="word" style="font-size:28px">'+esc(sel.name)+' <button class="speak" data-act="speak" data-t="'+esc(sel.name)+'" aria-label="朗读">🔊</button></h2>'+
+        '<p class="zh" style="margin:0">'+esc(sel.zh)+'</p><p class="small muted" style="margin:0">原子序数 '+sel.z+'</p></div></div>'+
+        '<div class="row"><button class="btn primary" data-act="elAdd" data-z="'+sel.z+'">加入复习</button><span class="small muted">加入后会有图片、例句，并进入复习和打字练习</span></div></section>'):'');
+  }
+  const list=CHEM.filter(x=>x.sub===cat),cur=ui.cterm&&S.words[ui.cterm]&&list.some(x=>slug(x.w)===ui.cterm)?ui.cterm:'';
+  return head+'<p class="small muted" style="margin:0">点一个词打开卡片。灰色的是还没学过的。</p>'+
+    '<div class="chips">'+list.map((x,i)=>{const k=slug(x.w),w=S.words[k];
+      return '<button class="chip'+(w?(w.box>=5?' known':''):' dim')+'" data-act="cterm" data-c="'+cat+'" data-i="'+i+'" aria-current="'+(k===cur)+'" title="'+esc(x.w)+'">'+esc(x.abbr||x.w)+'</button>'}).join('')+'</div>'+
+    (cur?cardHTML(cur,'<button class="btn" data-act="pracWord" data-k="'+cur+'">打字练习</button>'):'');
+};
 V.talk=function(){
   if(!ui.ready)return '<div class="row"><span class="spin"></span><span class="muted">正在读取你的学习记录…</span></div>';
   if(!(S.meta.talk||{})[today()])genTalk();
@@ -1033,7 +1184,7 @@ function listHTML(keys){
   }).join('')+'</div>';
 }
 V.lib=function(){
-  const t=today(),F={all:['全部',()=>true],push:['每日推送',w=>w.src!=='mine'&&w.src!=='talk'],talk:['生活口语',w=>w.src==='talk'],mine:['我输入的',w=>w.src==='mine'],due:['待复习',w=>w.due<=t],done:['已掌握',w=>w.box>=5]};
+  const t=today(),F={all:['全部',()=>true],push:['每日推送',w=>w.src!=='mine'&&w.src!=='talk'&&w.src!=='chem'],talk:['生活口语',w=>w.src==='talk'],chem:['化学',w=>w.src==='chem'],mine:['我输入的',w=>w.src==='mine'],due:['待复习',w=>w.due<=t],done:['已掌握',w=>w.box>=5]};
   const keys=all().filter(k=>F[ui.lib][1](S.words[k])).sort((a,b)=>S.words[a].added<S.words[b].added?1:(S.words[a].added>S.words[b].added?-1:0));
   return '<div class="chips">'+Object.keys(F).map(f=>'<button class="chip" data-act="lib" data-f="'+f+'" aria-current="'+(f===ui.lib)+'">'+F[f][0]+' '+all().filter(k=>F[f][1](S.words[k])).length+'</button>').join('')+'</div>'+
     (keys.length?listHTML(keys):'<p class="muted">这里还没有词。</p>');
@@ -1187,7 +1338,7 @@ function checkMake(){
 }
 
 /* ---------- render + events ---------- */
-const TABS=[['today','今日推送'],['talk','生活口语'],['mine','我的单词'],['review','复习'],['prac','打字练习'],['lib','词库']];
+const TABS=[['today','今日推送'],['talk','生活口语'],['chem','化学'],['mine','我的单词'],['review','复习'],['prac','打字练习'],['lib','词库']];
 function render(){
   const due=dueList().length,m=S.meta;
   $('#stats').innerHTML=(m.level!=null?'等级 <b>'+LV[m.level]+'</b> · ':'')+'连续 <b>'+m.streak+'</b> 天 · 词库 <b>'+all().length+'</b> · 已掌握 <b>'+all().filter(k=>S.words[k].box>=5).length+'</b>';
@@ -1202,6 +1353,10 @@ function render(){
 }
 const A={
   tab(d){ui.editRel=null;ui.chip=null;ui.tab=d.tab;ui.err='';ui.open=null;ui.del=null;render()},
+  ccat(d){ui.editRel=null;ui.ccat=d.c||null;ui.cterm=null;ui.cel=null;render()},
+  cterm(d){ui.editRel=null;const it=CHEM.filter(x=>x.sub===d.c)[+d.i];if(!it)return;ui.cterm=chemOpen(it);render()},
+  el(d){ui.editRel=null;ui.cel=+d.z;render()},
+  elAdd(d){const e=ELS[+d.z-1];if(!e)return;chemOpen(elItem(e));render()},
   tgo(d){ui.editRel=null;ui.tidx=+d.i;render()},tprev(){ui.editRel=null;ui.tidx--;render()},tnext(){ui.editRel=null;ui.tidx++;render()},
   go(d){ui.editRel=null;ui.idx=+d.i;render()},prev(){ui.editRel=null;ui.idx--;render()},next(){ui.editRel=null;ui.idx++;render()},
   speak(d){speak(d.t)},
